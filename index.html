@@ -1,7 +1,5 @@
 
-import { useState } from "react";
-
-const HTML = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -10,16 +8,6 @@ const HTML = `<!DOCTYPE html>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f4f0; color: #1a1a18; min-height: 100vh; }
-#gate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f5f4f0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
-#gate.hidden { display: none !important; }
-.gate-card { background: #fff; border: 1px solid #d3d1c7; border-radius: 12px; padding: 32px; width: 320px; text-align: center; }
-.gate-card h2 { font-size: 16px; font-weight: 500; margin-bottom: 6px; }
-.gate-card p { font-size: 12px; color: #888780; margin-bottom: 20px; }
-.gate-card input { width: 100%; padding: 9px 12px; border: 1px solid #d3d1c7; border-radius: 7px; font-size: 13px; margin-bottom: 10px; outline: none; }
-.gate-card button { width: 100%; padding: 9px; background: #1D9E75; color: #fff; border: none; border-radius: 7px; font-size: 13px; font-weight: 500; cursor: pointer; }
-.err { font-size: 11px; color: #D85A30; margin-top: 6px; display: none; }
-#app { display: none; }
-#app.visible { display: block; }
 header { background: #fff; border-bottom: 1px solid #e0dfd8; padding: 0 24px; display: flex; align-items: center; }
 header h1 { font-size: 14px; font-weight: 500; padding: 16px 0; margin-right: 24px; white-space: nowrap; }
 nav button { font-size: 13px; padding: 18px 16px; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; color: #888780; }
@@ -65,36 +53,26 @@ main { padding: 24px; max-width: 1100px; margin: 0 auto; }
 </head>
 <body>
 
-<div id="gate" style="display:none"></div>
-
-<div id="app" style="display:block">
-  <header>
-    <h1>Bible Loop Roadmap</h1>
-    <nav>
-      <button class="active" id="tab-btn-traceability">Traceability map</button>
-      <button id="tab-btn-exec">Executive view</button>
-      <button id="tab-btn-partner">Partner view</button>
-    </nav>
-  </header>
-  <main>
-    <div id="tab-traceability"></div>
-    <div id="tab-exec" style="display:none"></div>
-    <div id="tab-partner" style="display:none"></div>
-  </main>
-</div>
+<header>
+  <h1>Bible Loop Roadmap</h1>
+  <nav>
+    <button class="active" id="tab-btn-traceability">Traceability map</button>
+    <button id="tab-btn-exec">Executive view</button>
+    <button id="tab-btn-partner">Partner view</button>
+  </nav>
+</header>
+<main>
+  <div id="tab-traceability"></div>
+  <div id="tab-exec" style="display:none"></div>
+  <div id="tab-partner" style="display:none"></div>
+</main>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
 var AIRTABLE_TOKEN = 'patqyVGfVHN7RWD5s';
 var BASE_ID = 'app9JyUAmnAkOQ4mV';
-loadData();
 
 var DB = { outcomes: [], caps: [], objs: [], features: [] };
-var traceSel = null;
-var execSelOutcome = null;
-var execSelFeature = null;
-var partnerSel = null;
-var partnerLayer = 'outcomes';
+var traceSel = null, execSelOutcome = null, execSelFeature = null, partnerSel = null, partnerLayer = 'outcomes';
 
 var C = {
   teal:   { bg:'#E1F5EE', border:'#1D9E75', text:'#085041', mid:'#1D9E75' },
@@ -113,29 +91,16 @@ var STATUS_STYLE = {
 function ss(s) { return STATUS_STYLE[s] || { bg:'#F1EFE8', text:'#5F5E5A' }; }
 function byId(arr, id) { for (var i=0; i<arr.length; i++) { if (arr[i].id===id) return arr[i]; } return null; }
 
-document.getElementById('pw-btn').addEventListener('click', function() { checkPw(); });
-document.getElementById('pw-input').addEventListener('keydown', function(e) { if (e.key==='Enter') checkPw(); });
-
-function checkPw() {
-  if (document.getElementById('pw-input').value === PAGE_PASSWORD) {
-    document.getElementById('gate').classList.add('hidden');
-    document.getElementById('app').classList.add('visible');
-    loadData();
-  } else {
-    document.getElementById('pw-err').style.display = 'block';
-  }
-}
-
-document.getElementById('tab-btn-traceability').addEventListener('click', function() { switchTab('traceability'); });
-document.getElementById('tab-btn-exec').addEventListener('click', function() { switchTab('exec'); });
-document.getElementById('tab-btn-partner').addEventListener('click', function() { switchTab('partner'); });
-
 function switchTab(name) {
   ['traceability','exec','partner'].forEach(function(t) {
     document.getElementById('tab-'+t).style.display = t===name ? 'block' : 'none';
     document.getElementById('tab-btn-'+t).classList.toggle('active', t===name);
   });
 }
+
+document.getElementById('tab-btn-traceability').onclick = function() { switchTab('traceability'); };
+document.getElementById('tab-btn-exec').onclick = function() { switchTab('exec'); };
+document.getElementById('tab-btn-partner').onclick = function() { switchTab('partner'); };
 
 function fetchTable(tableName, fields) {
   var params = 'pageSize=100';
@@ -198,207 +163,162 @@ function loadData() {
 }
 
 function getConnected(sel) {
-  var none = { outcomes:[], caps:[], objs:[], feats:[] };
-  if (!sel) return none;
+  if (!sel) return { outcomes:[], caps:[], objs:[], feats:[] };
   var outcomes=[], caps=[], objs=[], feats=[];
-  function inArr(arr,id) { return arr.indexOf(id) > -1; }
+  function has(arr,id) { return arr.indexOf(id)>-1; }
   function addCap(cid) {
-    if (inArr(caps,cid)) return;
-    var c = byId(DB.caps,cid); if(!c) return;
+    if (has(caps,cid)) return;
+    var c=byId(DB.caps,cid); if(!c) return;
     caps.push(cid);
-    c.outcomeIds.forEach(function(o) { if(!inArr(outcomes,o)) outcomes.push(o); });
-    DB.objs.forEach(function(l) {
-      if (inArr(l.capIds,cid)) {
-        if (!inArr(objs,l.id)) objs.push(l.id);
-        DB.features.forEach(function(f) { if(inArr(f.objIds,l.id) && !inArr(feats,f.id)) feats.push(f.id); });
+    c.outcomeIds.forEach(function(o){ if(!has(outcomes,o)) outcomes.push(o); });
+    DB.objs.forEach(function(l){
+      if(has(l.capIds,cid)){
+        if(!has(objs,l.id)) objs.push(l.id);
+        DB.features.forEach(function(f){ if(has(f.objIds,l.id)&&!has(feats,f.id)) feats.push(f.id); });
       }
     });
   }
   function addObj(lid) {
-    if (inArr(objs,lid)) return;
-    var l = byId(DB.objs,lid); if(!l) return;
+    if (has(objs,lid)) return;
+    var l=byId(DB.objs,lid); if(!l) return;
     objs.push(lid);
-    l.capIds.forEach(function(c) { addCap(c); });
-    DB.features.forEach(function(f) { if(inArr(f.objIds,lid) && !inArr(feats,f.id)) feats.push(f.id); });
+    l.capIds.forEach(function(c){ addCap(c); });
+    DB.features.forEach(function(f){ if(has(f.objIds,lid)&&!has(feats,f.id)) feats.push(f.id); });
   }
-  var isOutcome = !!byId(DB.outcomes,sel);
-  var isCap     = !!byId(DB.caps,sel);
-  var isObj     = !!byId(DB.objs,sel);
-  var isFeat    = !!byId(DB.features,sel);
-  if (isOutcome) {
+  if (byId(DB.outcomes,sel)) {
     outcomes.push(sel);
-    DB.caps.forEach(function(c) { if(inArr(c.outcomeIds,sel)) addCap(c.id); });
-  } else if (isCap) {
+    DB.caps.forEach(function(c){ if(has(c.outcomeIds,sel)) addCap(c.id); });
+  } else if (byId(DB.caps,sel)) {
     addCap(sel);
-  } else if (isObj) {
+  } else if (byId(DB.objs,sel)) {
     addObj(sel);
-  } else if (isFeat) {
+  } else if (byId(DB.features,sel)) {
     feats.push(sel);
-    var f = byId(DB.features,sel);
-    f.objIds.forEach(function(o) { addObj(o); });
-    f.capIds.forEach(function(c) { addCap(c); });
-    f.outcomeIds.forEach(function(o) { if(!inArr(outcomes,o)) outcomes.push(o); });
+    var f=byId(DB.features,sel);
+    f.objIds.forEach(function(o){ addObj(o); });
+    f.capIds.forEach(function(c){ addCap(c); });
+    f.outcomeIds.forEach(function(o){ if(!has(outcomes,o)) outcomes.push(o); });
   }
   return { outcomes:outcomes, caps:caps, objs:objs, feats:feats };
 }
 
-function renderTraceability() {
-  var conn = getConnected(traceSel);
-  function nodeHtml(item, nc, setArr) {
-    var dim = traceSel && setArr.indexOf(item.id)===-1;
-    var active = traceSel===item.id;
-    var qb = item.quarter ? '<span class="tag" style="background:#F1EFE8;color:#5F5E5A;margin-left:4px">'+item.quarter+'</span>' : '';
-    return '<div class="trace-node'+(dim?' dimmed':'')+'" style="background:'+nc.bg+';border-color:'+(dim?nc.mid+'44':nc.border)+';color:'+nc.text+';'+(active?'box-shadow:0 0 0 2.5px '+nc.border:'')+'" onclick="traceClick(\''+item.id+'\')">'+ item.label + qb +'</div>';
-  }
-  var cols = [
-    { title:'Outcomes',            items:DB.outcomes,  color:C.teal,   nc:function(x){return x.color;}, set:conn.outcomes },
-    { title:'Core capabilities',   items:DB.caps,      color:C.purple, nc:function(){return C.gray;},   set:conn.caps     },
-    { title:'Learning objectives',  items:DB.objs,      color:C.coral,  nc:function(){return C.gray;},   set:conn.objs     },
-    { title:'Features',            items:DB.features,  color:C.pink,   nc:function(){return C.gray;},   set:conn.feats    }
-  ];
-  var html = '<div style="font-size:11px;color:#888780;margin-bottom:12px;text-align:center">Click any node to trace connections. Click again to reset.</div><div class="trace-grid">';
-  cols.forEach(function(col) {
-    html += '<div class="trace-col"><div class="trace-col-header" style="background:'+col.color.bg+';border-color:'+col.color.border+';color:'+col.color.text+'">'+col.title+'</div><div class="trace-col-body" style="border-color:'+col.color.border+'">';
-    col.items.forEach(function(item) { html += nodeHtml(item, col.nc(item), col.set); });
-    html += '</div></div>';
-  });
-  html += '</div>';
-  if (traceSel) html += '<div class="trace-count">'+conn.outcomes.length+' outcomes &middot; '+conn.caps.length+' capabilities &middot; '+conn.objs.length+' objectives &middot; '+conn.feats.length+' features</div>';
-  document.getElementById('tab-traceability').innerHTML = html;
-}
+function traceClick(id) { traceSel = traceSel===id?null:id; renderTraceability(); }
+function execOutcomeClick(id) { execSelOutcome=execSelOutcome===id?null:id; execSelFeature=null; renderExec(); }
+function execFeatureClick(id) { execSelFeature=execSelFeature===id?null:id; renderExec(); }
+function setPartnerLayer(l) { partnerLayer=l; renderPartner(); }
+function partnerFeatureClick(id) { partnerSel=partnerSel===id?null:id; renderPartner(); }
 
-function traceClick(id) { traceSel = traceSel===id ? null : id; renderTraceability(); }
+function renderTraceability() {
+  var conn=getConnected(traceSel);
+  var cols=[
+    {title:'Outcomes',           items:DB.outcomes, color:C.teal,   nc:function(x){return x.color;}, set:conn.outcomes},
+    {title:'Core capabilities',  items:DB.caps,     color:C.purple, nc:function(){return C.gray;},   set:conn.caps},
+    {title:'Learning objectives', items:DB.objs,     color:C.coral,  nc:function(){return C.gray;},   set:conn.objs},
+    {title:'Features',           items:DB.features, color:C.pink,   nc:function(){return C.gray;},   set:conn.feats}
+  ];
+  var html='<div style="font-size:11px;color:#888780;margin-bottom:12px;text-align:center">Click any node to trace connections. Click again to reset.</div><div class="trace-grid">';
+  cols.forEach(function(col){
+    html+='<div class="trace-col"><div class="trace-col-header" style="background:'+col.color.bg+';border-color:'+col.color.border+';color:'+col.color.text+'">'+col.title+'</div><div class="trace-col-body" style="border-color:'+col.color.border+'">';
+    col.items.forEach(function(item){
+      var nc=col.nc(item), dim=traceSel&&col.set.indexOf(item.id)===-1, active=traceSel===item.id;
+      var qb=item.quarter?'<span class="tag" style="background:#F1EFE8;color:#5F5E5A;margin-left:4px">'+item.quarter+'</span>':'';
+      html+='<div class="trace-node'+(dim?' dimmed':'')+'" style="background:'+nc.bg+';border-color:'+(dim?nc.mid+'44':nc.border)+';color:'+nc.text+';'+(active?'box-shadow:0 0 0 2.5px '+nc.border:'')+'" onclick="traceClick(\''+item.id+'\')">'+item.label+qb+'</div>';
+    });
+    html+='</div></div>';
+  });
+  html+='</div>';
+  if(traceSel) html+='<div class="trace-count">'+conn.outcomes.length+' outcomes &middot; '+conn.caps.length+' capabilities &middot; '+conn.objs.length+' objectives &middot; '+conn.feats.length+' features</div>';
+  document.getElementById('tab-traceability').innerHTML=html;
+}
 
 function renderExec() {
-  var quarters = [];
-  DB.features.forEach(function(f) { if(f.quarter && quarters.indexOf(f.quarter)===-1) quarters.push(f.quarter); });
+  var quarters=[];
+  DB.features.forEach(function(f){ if(f.quarter&&quarters.indexOf(f.quarter)===-1) quarters.push(f.quarter); });
   quarters.sort();
-  var visF = DB.features.filter(function(f) { return !execSelOutcome || f.outcomeIds.indexOf(execSelOutcome)>-1; });
-  var html = '<div class="section-title">Strategic outcomes</div><div class="outcome-row">';
-  DB.outcomes.forEach(function(o) {
-    var dim = execSelOutcome && execSelOutcome!==o.id;
-    html += '<div class="outcome-card" onclick="execOutcomeClick(\''+o.id+'\')" style="background:'+(dim?'#F1EFE8':o.color.bg)+';border-color:'+(dim?'#D3D1C7':o.color.border)+';opacity:'+(dim?0.4:1)+'"><h3 style="color:'+(dim?'#888780':o.color.text)+'">'+o.label+'</h3><p style="color:'+(dim?'#B4B2A9':o.color.text)+'">'+o.desc+'</p></div>';
+  var visF=DB.features.filter(function(f){ return !execSelOutcome||f.outcomeIds.indexOf(execSelOutcome)>-1; });
+  var html='<div class="section-title">Strategic outcomes</div><div class="outcome-row">';
+  DB.outcomes.forEach(function(o){
+    var dim=execSelOutcome&&execSelOutcome!==o.id;
+    html+='<div class="outcome-card" onclick="execOutcomeClick(\''+o.id+'\')" style="background:'+(dim?'#F1EFE8':o.color.bg)+';border-color:'+(dim?'#D3D1C7':o.color.border)+';opacity:'+(dim?0.4:1)+'"><h3 style="color:'+(dim?'#888780':o.color.text)+'">'+o.label+'</h3><p style="color:'+(dim?'#B4B2A9':o.color.text)+'">'+o.desc+'</p></div>';
   });
-  html += '</div>';
-  var fn = execSelOutcome ? ' &middot; <span style="color:'+byId(DB.outcomes,execSelOutcome).color.mid+'">filtered by "'+byId(DB.outcomes,execSelOutcome).label+'"</span>' : '';
-  html += '<div class="section-title">Feature timeline'+fn+'</div>';
-  quarters.forEach(function(q) {
-    var qf = visF.filter(function(f){return f.quarter===q;});
-    html += '<div class="timeline-row"><div class="q-label">'+q+'</div><div class="q-features">';
-    if (qf.length===0) { html += '<span style="font-size:11px;color:#b4b2a9;padding-top:8px">No features match</span>'; }
-    qf.forEach(function(f) {
-      var s = ss(f.status);
-      var dots = f.outcomeIds.map(function(oid){var o=byId(DB.outcomes,oid);return o?'<span class="dot" style="background:'+o.color.mid+'"></span>':''}).join('');
-      html += '<div class="feature-card'+(execSelFeature===f.id?' selected':'')+'" onclick="execFeatureClick(\''+f.id+'\')"><h4>'+f.label+'</h4><div class="meta"><span class="tag" style="background:'+s.bg+';color:'+s.text+'">'+f.status+'</span>'+dots+'</div></div>';
+  html+='</div>';
+  var fn=execSelOutcome?' &middot; <span style="color:'+byId(DB.outcomes,execSelOutcome).color.mid+'">filtered by "'+byId(DB.outcomes,execSelOutcome).label+'"</span>':'';
+  html+='<div class="section-title">Feature timeline'+fn+'</div>';
+  quarters.forEach(function(q){
+    var qf=visF.filter(function(f){return f.quarter===q;});
+    html+='<div class="timeline-row"><div class="q-label">'+q+'</div><div class="q-features">';
+    if(!qf.length) html+='<span style="font-size:11px;color:#b4b2a9;padding-top:8px">No features match</span>';
+    qf.forEach(function(f){
+      var s=ss(f.status);
+      var dots=f.outcomeIds.map(function(oid){var o=byId(DB.outcomes,oid);return o?'<span class="dot" style="background:'+o.color.mid+'"></span>':''}).join('');
+      html+='<div class="feature-card'+(execSelFeature===f.id?' selected':'')+'" onclick="execFeatureClick(\''+f.id+'\')"><h4>'+f.label+'</h4><div class="meta"><span class="tag" style="background:'+s.bg+';color:'+s.text+'">'+f.status+'</span>'+dots+'</div></div>';
     });
-    html += '</div></div>';
+    html+='</div></div>';
   });
-  if (execSelFeature) {
-    var f = byId(DB.features, execSelFeature);
-    if (f) {
-      var s = ss(f.status);
-      var op = f.outcomeIds.map(function(oid){var o=byId(DB.outcomes,oid);return o?'<span class="pill" style="background:'+o.color.bg+';color:'+o.color.text+';border:1px solid '+o.color.border+'">'+o.label+'</span>':''}).join('');
-      html += '<div class="detail-panel"><h3>'+f.label+'</h3>'+(f.problem?'<div style="font-size:12px;color:#444441;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#fff;border:1px solid #e0dfd8;border-radius:6px">'+f.problem+'</div>':'')+'<div class="detail-section"><div class="detail-label">Outcomes</div><div class="detail-items">'+op+'</div></div></div>';
+  if(execSelFeature){
+    var f=byId(DB.features,execSelFeature);
+    if(f){
+      var op=f.outcomeIds.map(function(oid){var o=byId(DB.outcomes,oid);return o?'<span class="pill" style="background:'+o.color.bg+';color:'+o.color.text+';border:1px solid '+o.color.border+'">'+o.label+'</span>':''}).join('');
+      html+='<div class="detail-panel"><h3>'+f.label+'</h3>'+(f.problem?'<div style="font-size:12px;color:#444441;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#fff;border:1px solid #e0dfd8;border-radius:6px">'+f.problem+'</div>':'')+'<div class="detail-section"><div class="detail-label">Outcomes</div><div class="detail-items">'+op+'</div></div></div>';
     }
   }
-  document.getElementById('tab-exec').innerHTML = html;
+  document.getElementById('tab-exec').innerHTML=html;
 }
-
-function execOutcomeClick(id) { execSelOutcome = execSelOutcome===id?null:id; execSelFeature=null; renderExec(); }
-function execFeatureClick(id) { execSelFeature = execSelFeature===id?null:id; renderExec(); }
 
 function renderPartner() {
-  var quarters = [];
-  DB.features.forEach(function(f) { if(f.quarter && quarters.indexOf(f.quarter)===-1) quarters.push(f.quarter); });
+  var quarters=[];
+  DB.features.forEach(function(f){ if(f.quarter&&quarters.indexOf(f.quarter)===-1) quarters.push(f.quarter); });
   quarters.sort();
-  var layerBtns = ['outcomes','capabilities','objectives'].map(function(l) {
+  var layerBtns=['outcomes','capabilities','objectives'].map(function(l){
     return '<button class="layer-btn'+(partnerLayer===l?' active':'')+'" onclick="setPartnerLayer(\''+l+'\')">'+(l==='outcomes'?'Outcomes':l==='capabilities'?'+ Capabilities':'+ Objectives')+'</button>';
   }).join('');
-  var html = '<div class="card" style="margin-bottom:18px"><div style="font-size:13px;font-weight:500;margin-bottom:4px">Bible Loop — partner roadmap</div><div style="font-size:12px;color:#888780;line-height:1.5">This view shows how planned features connect to outcomes and learning goals. Use the layer toggle to explore the strategic logic, and click any feature for detail.</div></div>';
-  html += '<div style="margin-bottom:14px;display:flex;align-items:center;flex-wrap:wrap;gap:4px"><span style="font-size:11px;color:#888780;margin-right:4px">Show strategy layer:</span>'+layerBtns+'</div>';
-  if (partnerLayer==='outcomes') {
-    html += '<div class="outcome-row">';
-    DB.outcomes.forEach(function(o) {
-      html += '<div class="outcome-card" style="background:'+o.color.bg+';border-color:'+o.color.border+';cursor:default"><h3 style="color:'+o.color.text+'">'+o.label+'</h3><p style="color:'+o.color.text+'">'+o.desc+'</p></div>';
+  var html='<div class="card" style="margin-bottom:18px"><div style="font-size:13px;font-weight:500;margin-bottom:4px">Bible Loop — partner roadmap</div><div style="font-size:12px;color:#888780;line-height:1.5">This view shows how planned features connect to outcomes and learning goals. Use the layer toggle to explore the strategic logic, and click any feature for detail.</div></div>';
+  html+='<div style="margin-bottom:14px;display:flex;align-items:center;flex-wrap:wrap;gap:4px"><span style="font-size:11px;color:#888780;margin-right:4px">Show strategy layer:</span>'+layerBtns+'</div>';
+  if(partnerLayer==='outcomes'){
+    html+='<div class="outcome-row">';
+    DB.outcomes.forEach(function(o){
+      html+='<div class="outcome-card" style="background:'+o.color.bg+';border-color:'+o.color.border+';cursor:default"><h3 style="color:'+o.color.text+'">'+o.label+'</h3><p style="color:'+o.color.text+'">'+o.desc+'</p></div>';
     });
-    html += '</div>';
+    html+='</div>';
   } else {
-    DB.outcomes.forEach(function(o) {
-      var oCaps = DB.caps.filter(function(c){return c.outcomeIds.indexOf(o.id)>-1;});
-      html += '<div style="border-radius:8px;border:1px solid '+o.color.border+';background:'+o.color.bg+';padding:10px 12px;margin-bottom:8px"><div style="font-size:12px;font-weight:500;color:'+o.color.text+';margin-bottom:7px">'+o.label+'</div><div style="display:flex;flex-wrap:wrap;gap:6px">';
-      oCaps.forEach(function(c) {
-        html += '<div class="card-sm" style="min-width:150px;flex:1"><div style="font-size:11px;font-weight:500;color:#1a1a18">'+c.label+'</div>';
-        if (partnerLayer==='objectives') {
-          html += '<ul style="margin:4px 0 0;padding-left:14px">';
-          DB.objs.forEach(function(l) { if(l.capIds.indexOf(c.id)>-1) html += '<li style="font-size:10.5px;color:#5F5E5A;line-height:1.5">'+l.label+'</li>'; });
-          html += '</ul>';
+    DB.outcomes.forEach(function(o){
+      var oCaps=DB.caps.filter(function(c){return c.outcomeIds.indexOf(o.id)>-1;});
+      html+='<div style="border-radius:8px;border:1px solid '+o.color.border+';background:'+o.color.bg+';padding:10px 12px;margin-bottom:8px"><div style="font-size:12px;font-weight:500;color:'+o.color.text+';margin-bottom:7px">'+o.label+'</div><div style="display:flex;flex-wrap:wrap;gap:6px">';
+      oCaps.forEach(function(c){
+        html+='<div class="card-sm" style="min-width:150px;flex:1"><div style="font-size:11px;font-weight:500;color:#1a1a18">'+c.label+'</div>';
+        if(partnerLayer==='objectives'){
+          html+='<ul style="margin:4px 0 0;padding-left:14px">';
+          DB.objs.forEach(function(l){ if(l.capIds.indexOf(c.id)>-1) html+='<li style="font-size:10.5px;color:#5F5E5A;line-height:1.5">'+l.label+'</li>'; });
+          html+='</ul>';
         }
-        html += '</div>';
+        html+='</div>';
       });
-      html += '</div></div>';
+      html+='</div></div>';
     });
   }
-  html += '<div class="section-title" style="margin-top:8px">Delivery timeline</div>';
-  quarters.forEach(function(q) {
-    html += '<div class="timeline-row"><div class="q-label">'+q+'</div><div class="q-features">';
-    DB.features.filter(function(f){return f.quarter===q;}).forEach(function(f) {
-      var s = ss(f.status);
-      var uf = ['infrastructure','backend'].every(function(k){return (f.type||'').toLowerCase().indexOf(k)===-1;});
-      var dots = f.outcomeIds.map(function(oid){var o=byId(DB.outcomes,oid);return o?'<span class="dot" style="background:'+o.color.mid+'"></span>':''}).join('');
-      html += '<div class="feature-card'+(partnerSel===f.id?' selected':'')+'" onclick="partnerFeatureClick(\''+f.id+'\')"><h4>'+f.label+'</h4><div class="meta"><span class="tag" style="background:'+s.bg+';color:'+s.text+'">'+f.status+'</span><span class="tag" style="background:'+(uf?'#E6F1FB':'#F1EFE8')+';color:'+(uf?'#0C447C':'#5F5E5A')+'">'+(uf?'User-facing':'Infrastructure')+'</span>'+dots+'</div></div>';
+  html+='<div class="section-title" style="margin-top:8px">Delivery timeline</div>';
+  quarters.forEach(function(q){
+    html+='<div class="timeline-row"><div class="q-label">'+q+'</div><div class="q-features">';
+    DB.features.filter(function(f){return f.quarter===q;}).forEach(function(f){
+      var s=ss(f.status), uf=['infrastructure','backend'].every(function(k){return(f.type||'').toLowerCase().indexOf(k)===-1;});
+      var dots=f.outcomeIds.map(function(oid){var o=byId(DB.outcomes,oid);return o?'<span class="dot" style="background:'+o.color.mid+'"></span>':''}).join('');
+      html+='<div class="feature-card'+(partnerSel===f.id?' selected':'')+'" onclick="partnerFeatureClick(\''+f.id+'\')"><h4>'+f.label+'</h4><div class="meta"><span class="tag" style="background:'+s.bg+';color:'+s.text+'">'+f.status+'</span><span class="tag" style="background:'+(uf?'#E6F1FB':'#F1EFE8')+';color:'+(uf?'#0C447C':'#5F5E5A')+'">'+(uf?'User-facing':'Infrastructure')+'</span>'+dots+'</div></div>';
     });
-    html += '</div></div>';
+    html+='</div></div>';
   });
-  if (partnerSel) {
-    var f = byId(DB.features, partnerSel);
-    if (f) {
-      var s = ss(f.status);
-      var op = f.outcomeIds.map(function(oid){var o=byId(DB.outcomes,oid);return o?'<span class="pill" style="background:'+o.color.bg+';color:'+o.color.text+';border:1px solid '+o.color.border+'">'+o.label+'</span>':''}).join('');
-      var cp = f.capIds.map(function(cid){var c=byId(DB.caps,cid);return c?'<span class="pill" style="background:#F1EFE8;color:#5F5E5A;border:1px solid #888780">'+c.label+'</span>':''}).join('');
-      var lp = f.objIds.map(function(lid){var l=byId(DB.objs,lid);return l?'<span class="pill" style="background:#F1EFE8;color:#5F5E5A;border:1px solid #888780">'+l.label+'</span>':''}).join('');
-      html += '<div class="detail-panel"><h3>'+f.label+'</h3>'+(f.problem?'<div style="font-size:12px;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#fff;border:1px solid #e0dfd8;border-radius:6px;color:#444441">'+f.problem+'</div>':'')+(f.risks?'<div style="font-size:12px;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#FAECE7;border:1px solid #F5C4B3;border-radius:6px;color:#712B13"><strong>Risks:</strong> '+f.risks+'</div>':'')+'<div class="detail-section"><div class="detail-label">Outcomes</div><div class="detail-items">'+op+'</div></div><div class="detail-section"><div class="detail-label">Core capabilities</div><div class="detail-items">'+cp+'</div></div><div class="detail-section"><div class="detail-label">Learning objectives</div><div class="detail-items">'+lp+'</div></div></div>';
+  if(partnerSel){
+    var f=byId(DB.features,partnerSel);
+    if(f){
+      var op=f.outcomeIds.map(function(oid){var o=byId(DB.outcomes,oid);return o?'<span class="pill" style="background:'+o.color.bg+';color:'+o.color.text+';border:1px solid '+o.color.border+'">'+o.label+'</span>':''}).join('');
+      var cp=f.capIds.map(function(cid){var c=byId(DB.caps,cid);return c?'<span class="pill" style="background:#F1EFE8;color:#5F5E5A;border:1px solid #888780">'+c.label+'</span>':''}).join('');
+      var lp=f.objIds.map(function(lid){var l=byId(DB.objs,lid);return l?'<span class="pill" style="background:#F1EFE8;color:#5F5E5A;border:1px solid #888780">'+l.label+'</span>':''}).join('');
+      html+='<div class="detail-panel"><h3>'+f.label+'</h3>'+(f.problem?'<div style="font-size:12px;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#fff;border:1px solid #e0dfd8;border-radius:6px;color:#444441">'+f.problem+'</div>':'')+(f.risks?'<div style="font-size:12px;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#FAECE7;border:1px solid #F5C4B3;border-radius:6px;color:#712B13"><strong>Risks:</strong> '+f.risks+'</div>':'')+'<div class="detail-section"><div class="detail-label">Outcomes</div><div class="detail-items">'+op+'</div></div><div class="detail-section"><div class="detail-label">Core capabilities</div><div class="detail-items">'+cp+'</div></div><div class="detail-section"><div class="detail-label">Learning objectives</div><div class="detail-items">'+lp+'</div></div></div>';
     }
   }
-  document.getElementById('tab-partner').innerHTML = html;
+  document.getElementById('tab-partner').innerHTML=html;
 }
 
-function setPartnerLayer(l) { partnerLayer = l; renderPartner(); }
-function partnerFeatureClick(id) { partnerSel = partnerSel===id?null:id; renderPartner(); }
-}); // end DOMContentLoaded
-<\/script>
+loadData();
+</script>
 </body>
-</html>`;
-
-export default function App() {
-  const [done, setDone] = useState(false);
-  const download = () => {
-    const blob = new Blob([HTML], { type: "text/html;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "index.html";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    setDone(true);
-  };
-  return (
-    <div style={{ padding:"32px 24px", textAlign:"center", fontFamily:"var(--font-sans)" }}>
-      <div style={{ fontSize:14, fontWeight:500, color:"var(--color-text-primary)", marginBottom:6 }}>
-        Bible Loop Roadmap App
-      </div>
-      <div style={{ fontSize:12, color:"var(--color-text-secondary)", marginBottom:24, lineHeight:1.6, maxWidth:380, margin:"0 auto 24px" }}>
-        Downloads <code style={{ fontSize:11, background:"var(--color-background-secondary)", padding:"1px 5px", borderRadius:3 }}>index.html</code>.
-        Open in TextEdit or Notepad and replace <code style={{ fontSize:11, background:"var(--color-background-secondary)", padding:"1px 5px", borderRadius:3 }}>YOUR_TOKEN_HERE</code> and <code style={{ fontSize:11, background:"var(--color-background-secondary)", padding:"1px 5px", borderRadius:3 }}>YOUR_PASSWORD_HERE</code> before uploading to GitHub.
-      </div>
-      <button onClick={download} style={{
-        padding:"10px 28px", borderRadius:8, border:"none",
-        background:"#1D9E75", color:"#fff", fontSize:13, fontWeight:500, cursor:"pointer"
-      }}>
-        Download index.html
-      </button>
-      {done && <div style={{ fontSize:12, color:"#1D9E75", marginTop:12 }}>Downloaded. Add your token and password, then upload to GitHub.</div>}
-    </div>
-  );
-}
+</html>
