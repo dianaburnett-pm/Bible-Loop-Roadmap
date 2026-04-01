@@ -7,543 +7,416 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2685.4">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #101010; -webkit-text-stroke: #101010; min-height: 15.0px}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px '.AppleSystemUIFontMonospaced'; color: #101318; -webkit-text-stroke: #101318}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px '.AppleSystemUIFontMonospaced'; color: #101318; -webkit-text-stroke: #101318; min-height: 12.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px '.AppleSystemUIFontMonospaced'; color: #0f7001; -webkit-text-stroke: #0f7001}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px '.AppleSystemUIFontMonospaced'; color: #6c00b5; -webkit-text-stroke: #6c00b5}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px '.AppleSystemUIFontMonospaced'; color: #0439b5; -webkit-text-stroke: #0439b5}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px '.AppleSystemUIFontMonospaced'; color: #a70014; -webkit-text-stroke: #a70014}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px '.AppleSystemUIFontMonospaced'; color: #20242d; -webkit-text-stroke: #20242d}
+    span.s1 {font-kerning: none}
+    span.s2 {font-kerning: none; color: #6c00b5; -webkit-text-stroke: 0px #6c00b5}
+    span.s3 {font-kerning: none; color: #20242d; -webkit-text-stroke: 0px #20242d}
+    span.s4 {font-kerning: none; color: #0f7001; -webkit-text-stroke: 0px #0f7001}
+    span.s5 {font-kerning: none; color: #101318; -webkit-text-stroke: 0px #101318}
+    span.s6 {font-kerning: none; color: #0e6e6d; -webkit-text-stroke: 0px #0e6e6d}
+    span.s7 {font: 12.0px Helvetica; font-kerning: none; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: 0px rgba(0, 0, 0, 0.85)}
+    span.s8 {font-kerning: none; color: #a23704; -webkit-text-stroke: 0px #a23704}
+    span.s9 {font-kerning: none; color: #0439b5; -webkit-text-stroke: 0px #0439b5}
+    span.s10 {font-kerning: none; color: #ad0018; -webkit-text-stroke: 0px #ad0018}
+    span.s11 {font-kerning: none; color: #a70014; -webkit-text-stroke: 0px #a70014}
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"/&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
-<p class="p1">&lt;title&gt;Bible Loop Roadmap&lt;/title&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>* { box-sizing: border-box; margin: 0; padding: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f4f0; color: #1a1a18; min-height: 100vh; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Password gate */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#gate { position: fixed; inset: 0; background: #f5f4f0; display: flex; align-items: center; justify-content: center; z-index: 999; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#gate.hidden { display: none; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.gate-card { background: #fff; border: 1px solid #d3d1c7; border-radius: 12px; padding: 32px; width: 320px; text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.gate-card h2 { font-size: 16px; font-weight: 500; margin-bottom: 6px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.gate-card p { font-size: 12px; color: #888780; margin-bottom: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.gate-card input { width: 100%; padding: 9px 12px; border: 1px solid #d3d1c7; border-radius: 7px; font-size: 13px; margin-bottom: 10px; outline: none; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.gate-card input:focus { border-color: #7F77DD; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.gate-card button { width: 100%; padding: 9px; background: #1D9E75; color: #fff; border: none; border-radius: 7px; font-size: 13px; font-weight: 500; cursor: pointer; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.gate-card .err { font-size: 11px; color: #D85A30; margin-top: 6px; display: none; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* App shell */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#app { display: none; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#app.visible { display: block; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>header { background: #fff; border-bottom: 1px solid #e0dfd8; padding: 0 24px; display: flex; align-items: center; gap: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>header h1 { font-size: 14px; font-weight: 500; color: #1a1a18; padding: 16px 0; margin-right: 24px; white-space: nowrap; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>nav { display: flex; gap: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>nav button { font-size: 13px; padding: 18px 16px; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; color: #888780; font-weight: 400; white-space: nowrap; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>nav button.active { color: #1D9E75; border-bottom-color: #1D9E75; font-weight: 500; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>nav button:hover:not(.active) { color: #1a1a18; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>main { padding: 24px; max-width: 1100px; margin: 0 auto; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Loading */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.loading { text-align: center; padding: 60px; color: #888780; font-size: 13px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.loading .spinner { width: 24px; height: 24px; border: 2px solid #e0dfd8; border-top-color: #1D9E75; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 12px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>@keyframes spin { to { transform: rotate(360deg); } }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Pill / tag */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.pill { display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.tag<span class="Apple-converted-space">  </span>{ display: inline-flex; align-items: center; font-size: 10px; padding: 1px 6px; border-radius: 3px; white-space: nowrap; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.dot<span class="Apple-converted-space">  </span>{ width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Cards */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.card { background: #fff; border: 1px solid #e0dfd8; border-radius: 10px; padding: 14px 16px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.card-sm { background: #fff; border: 1px solid #e0dfd8; border-radius: 8px; padding: 10px 12px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Outcome cards row */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.outcome-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.outcome-card { flex: 1 1 180px; padding: 10px 12px; border-radius: 8px; cursor: pointer; border: 1.5px solid; transition: all 0.12s; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.outcome-card h3 { font-size: 12px; font-weight: 500; margin-bottom: 3px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.outcome-card p<span class="Apple-converted-space">  </span>{ font-size: 11px; line-height: 1.4; opacity: 0.8; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Timeline */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.timeline-row { display: flex; gap: 0; margin-bottom: 14px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.q-label { width: 80px; flex-shrink: 0; padding-top: 8px; font-size: 11px; font-weight: 500; color: #888780; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.q-features { flex: 1; display: flex; flex-wrap: wrap; gap: 7px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.feature-card { padding: 9px 11px; border-radius: 8px; cursor: pointer; background: #fff; border: 1px solid #e0dfd8; min-width: 150px; flex: 0 1 auto; transition: all 0.12s; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.feature-card:hover { border-color: #b4b2a9; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.feature-card.selected { border-color: #888780; box-shadow: 0 0 0 2px #d3d1c7; background: #f8f7f4; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.feature-card h4 { font-size: 12px; font-weight: 500; margin-bottom: 5px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.feature-card .meta { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Detail panel */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.detail-panel { margin-top: 8px; padding: 14px 16px; border-radius: 8px; background: #f8f7f4; border: 1px solid #d3d1c7; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.detail-panel h3 { font-size: 13px; font-weight: 500; margin-bottom: 6px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.detail-section { margin-top: 10px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.detail-section .label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: #888780; margin-bottom: 5px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.detail-section .items { display: flex; flex-wrap: wrap; gap: 5px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Traceability */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.trace-grid { display: flex; gap: 10px; align-items: stretch; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.trace-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.trace-col-header { font-size: 10.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; padding: 6px 10px; border-radius: 7px 7px 0 0; text-align: center; border: 1px solid; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.trace-col-body { border: 1px solid; border-top: none; border-radius: 0 0 7px 7px; padding: 8px; display: flex; flex-direction: column; gap: 5px; flex: 1; background: #fff; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.trace-node { padding: 6px 9px; border-radius: 6px; cursor: pointer; font-size: 11.5px; border: 1.5px solid; transition: all 0.12s; line-height: 1.4; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.trace-node.active { box-shadow: 0 0 0 2.5px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.trace-node.dimmed { opacity: 0.3; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.trace-count { margin-top: 10px; text-align: center; font-size: 11px; color: #888780; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Layer toggle */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.layer-toggle { display: flex; gap: 6px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.layer-toggle span { font-size: 11px; color: #888780; margin-right: 2px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.layer-btn { font-size: 11px; padding: 4px 10px; border-radius: 5px; cursor: pointer; border: 1px solid #d3d1c7; background: #f8f7f4; color: #888780; font-weight: 400; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.layer-btn.active { background: #E6F1FB; color: #0C447C; border-color: #85B7EB; font-weight: 500; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Error */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.error-box { background: #FCEBEB; border: 1px solid #F09595; border-radius: 8px; padding: 14px 16px; font-size: 12px; color: #791F1F; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>@media (max-width: 640px) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.trace-grid { flex-direction: column; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>header { flex-wrap: wrap; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav { overflow-x: auto; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- ── PASSWORD GATE ── --&gt;</p>
-<p class="p1">&lt;div id="gate"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="gate-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Bible Loop Roadmap&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Enter the access password to continue.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="password" id="pw-input" placeholder="Password" onkeydown="if(event.key==='Enter')checkPw()"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="checkPw()"&gt;Enter&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="err" id="pw-err"&gt;Incorrect password&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- ── APP ── --&gt;</p>
-<p class="p1">&lt;div id="app"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Bible Loop Roadmap&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="active" onclick="showTab('traceability',this)"&gt;Traceability map&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="showTab('exec',this)"&gt;Executive view&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="showTab('partner',this)"&gt;Partner view&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;main&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="tab-traceability"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="tab-exec"<span class="Apple-converted-space">          </span>style="display:none"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="tab-partner" <span class="Apple-converted-space">      </span>style="display:none"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">// ─────────────────────────────────────────────</p>
-<p class="p1">// CONFIGURATION — edit these two lines</p>
-<p class="p1">// ─────────────────────────────────────────────</p>
-<p class="p1">const AIRTABLE_TOKEN = 'patqyVGfVHN7RWD5s'; <span class="Apple-converted-space">  </span>// ← paste your Personal Access Token</p>
-<p class="p1">const BASE_ID<span class="Apple-converted-space">        </span>= 'app9JyUAmnAkOQ4mV';</p>
-<p class="p1">const PAGE_PASSWORD<span class="Apple-converted-space">  </span>= ‘everyteen’; <span class="Apple-converted-space">      </span>// ← set your access password here</p>
-<p class="p1">// ─────────────────────────────────────────────</p>
-<p class="p2"><br></p>
-<p class="p1">// ── Password gate ──</p>
-<p class="p1">function checkPw() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const val = document.getElementById('pw-input').value;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (val === PAGE_PASSWORD) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('gate').classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('app').classList.add('visible');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>loadData();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('pw-err').style.display = 'block';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// ── Tab switching ──</p>
-<p class="p1">function showTab(name, btn) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>['traceability','exec','partner'].forEach(t =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('tab-'+t).style.display = t===name ? 'block' : 'none';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('nav button').forEach(b =&gt; b.classList.remove('active'));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>btn.classList.add('active');</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// ── Airtable fetch ──</p>
-<p class="p1">async function fetchTable(tableName, fields) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const params = new URLSearchParams({ pageSize: 100 });</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (fields) fields.forEach(f =&gt; params.append('fields[]', f));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const rows = [];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let offset = null;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>do {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (offset) params.set('offset', offset);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const res = await fetch(</p>
-<p class="p1"><span class="Apple-converted-space">      </span>`https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(tableName)}?${params}`,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{ headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (!res.ok) throw new Error(`Airtable error ${res.status} on table "${tableName}"`);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const data = await res.json();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>rows.push(...data.records);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>offset = data.offset || null;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} while (offset);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return rows;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// ── Color palette ──</p>
-<p class="p1">const C = {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>teal: <span class="Apple-converted-space">  </span>{ bg:'#E1F5EE', border:'#1D9E75', text:'#085041', mid:'#1D9E75' },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>purple: { bg:'#EEEDFE', border:'#7F77DD', text:'#3C3489', mid:'#7F77DD' },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>coral:<span class="Apple-converted-space">  </span>{ bg:'#FAECE7', border:'#D85A30', text:'#712B13', mid:'#D85A30' },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>pink: <span class="Apple-converted-space">  </span>{ bg:'#FBEAF0', border:'#D4537E', text:'#72243E', mid:'#D4537E' },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>gray: <span class="Apple-converted-space">  </span>{ bg:'#F1EFE8', border:'#888780', text:'#5F5E5A', mid:'#888780' },</p>
-<p class="p1">};</p>
-<p class="p1">const OUTCOME_COLORS = [C.teal, C.purple, C.coral, C.pink];</p>
-<p class="p1">const STATUS_STYLE = {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>'In development': { bg:'#E1F5EE', text:'#085041' },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>'In design':<span class="Apple-converted-space">      </span>{ bg:'#EEEDFE', text:'#3C3489' },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>'Backlog':<span class="Apple-converted-space">        </span>{ bg:'#F1EFE8', text:'#5F5E5A' },</p>
-<p class="p1">};</p>
-<p class="p2"><br></p>
-<p class="p1">function statusStyle(s) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return STATUS_STYLE[s] || { bg:'#F1EFE8', text:'#5F5E5A' };</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// ── Main data load ──</p>
-<p class="p1">let DB = {};</p>
-<p class="p2"><br></p>
-<p class="p1">async function loadData() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>showLoading('tab-traceability');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>showLoading('tab-exec');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>showLoading('tab-partner');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const [outcomes, caps, objs, features] = await Promise.all([</p>
-<p class="p1"><span class="Apple-converted-space">      </span>fetchTable('Outcomes',<span class="Apple-converted-space">            </span>['Bible Loop Outcome','Description']),</p>
-<p class="p1"><span class="Apple-converted-space">      </span>fetchTable('Capabilities',<span class="Apple-converted-space">        </span>['Name','Related Outcomes','Learning Objectives']),</p>
-<p class="p1"><span class="Apple-converted-space">      </span>fetchTable('Learning Objectives', ['Learning Objective','Capabilities','Outcomes']),</p>
-<p class="p1"><span class="Apple-converted-space">      </span>fetchTable('Features',<span class="Apple-converted-space">            </span>['Name','Status','Target Delivery','Outcomes','Core Capabilities','Learning Objectives','Problem Statement','Risks','YV Type']),</p>
-<p class="p1"><span class="Apple-converted-space">    </span>]);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>DB.outcomes<span class="Apple-converted-space">  </span>= outcomes.map((r,i) =&gt; ({</p>
-<p class="p1"><span class="Apple-converted-space">      </span>id: r.id, label: r.fields['Bible Loop Outcome'] || '(unnamed)',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>desc: r.fields['Description'] || '', color: OUTCOME_COLORS[i % OUTCOME_COLORS.length],</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>DB.caps = caps.map(r =&gt; ({</p>
-<p class="p1"><span class="Apple-converted-space">      </span>id: r.id, label: r.fields['Name'] || '(unnamed)',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>outcomeIds: r.fields['Related Outcomes'] || [],</p>
-<p class="p1"><span class="Apple-converted-space">      </span>objIds: <span class="Apple-converted-space">    </span>r.fields['Learning Objectives'] || [],</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>DB.objs = objs.map(r =&gt; ({</p>
-<p class="p1"><span class="Apple-converted-space">      </span>id: r.id, label: r.fields['Learning Objective'] || '(unnamed)',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>capIds: <span class="Apple-converted-space">    </span>r.fields['Capabilities'] || [],</p>
-<p class="p1"><span class="Apple-converted-space">      </span>outcomeIds: r.fields['Outcomes'] || [],</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>DB.features = features.map(r =&gt; ({</p>
-<p class="p1"><span class="Apple-converted-space">      </span>id: r.id, label: r.fields['Name'] || '(unnamed)',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>status: <span class="Apple-converted-space">    </span>r.fields['Status'] || '',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>quarter:<span class="Apple-converted-space">    </span>r.fields['Target Delivery'] || 'TBD',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>outcomeIds: r.fields['Outcomes'] || [],</p>
-<p class="p1"><span class="Apple-converted-space">      </span>capIds: <span class="Apple-converted-space">    </span>r.fields['Core Capabilities'] || [],</p>
-<p class="p1"><span class="Apple-converted-space">      </span>objIds: <span class="Apple-converted-space">    </span>r.fields['Learning Objectives'] || [],</p>
-<p class="p1"><span class="Apple-converted-space">      </span>problem:<span class="Apple-converted-space">    </span>r.fields['Problem Statement'] || '',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>risks:<span class="Apple-converted-space">      </span>r.fields['Risks'] || '',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>type: <span class="Apple-converted-space">      </span>r.fields['YV Type'] || '',</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}));</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>renderTraceability();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>renderExec();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>renderPartner();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} catch(e) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>['traceability','exec','partner'].forEach(t =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('tab-'+t).innerHTML =</p>
-<p class="p1"><span class="Apple-converted-space">        </span>`&lt;div class="error-box"&gt;Failed to load data: ${e.message}&lt;br&gt;&lt;br&gt;Check that your token is correct and has read access to this base.&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function showLoading(id) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById(id).innerHTML =</p>
-<p class="p1"><span class="Apple-converted-space">    </span>`&lt;div class="loading"&gt;&lt;div class="spinner"&gt;&lt;/div&gt;Loading from Airtable...&lt;/div&gt;`;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// ── Helpers ──</p>
-<p class="p1">function byId(arr, id) { return arr.find(x =&gt; x.id === id); }</p>
-<p class="p2"><br></p>
-<p class="p1">function getConnected(sel) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const none = { outcomes:new Set(), caps:new Set(), objs:new Set(), feats:new Set() };</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (!sel) return none;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let outcomes=new Set(), caps=new Set(), objs=new Set(), feats=new Set();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const type = sel.startsWith('rec') ? 'rec' : sel[0];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const addCap = cid =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const c = byId(DB.caps, cid); if (!c) return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>caps.add(cid);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>c.outcomeIds.forEach(o =&gt; outcomes.add(o));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>DB.objs.filter(l=&gt;l.capIds.includes(cid)).forEach(l =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>objs.add(l.id);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>DB.features.filter(f=&gt;f.objIds.includes(l.id)).forEach(f=&gt;feats.add(f.id));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>};</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const addObj = lid =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const l = byId(DB.objs, lid); if (!l) return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>objs.add(lid);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>l.capIds.forEach(c=&gt;addCap(c));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>DB.features.filter(f=&gt;f.objIds.includes(lid)).forEach(f=&gt;feats.add(f.id));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Determine which collection sel belongs to</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const isOutcome = DB.outcomes.some(x=&gt;x.id===sel);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const isCap <span class="Apple-converted-space">    </span>= DB.caps.some(x=&gt;x.id===sel);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const isObj <span class="Apple-converted-space">    </span>= DB.objs.some(x=&gt;x.id===sel);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const isFeat<span class="Apple-converted-space">    </span>= DB.features.some(x=&gt;x.id===sel);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (isOutcome) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>outcomes.add(sel);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>DB.caps.filter(c=&gt;c.outcomeIds.includes(sel)).forEach(c=&gt;addCap(c.id));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} else if (isCap) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>addCap(sel);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} else if (isObj) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>addObj(sel);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} else if (isFeat) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>feats.add(sel);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const f = byId(DB.features, sel);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>f.objIds.forEach(o=&gt;addObj(o));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>f.capIds.forEach(c=&gt;addCap(c));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>f.outcomeIds.forEach(o=&gt;outcomes.add(o));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return { outcomes, caps, objs, feats };</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// ── TRACEABILITY MAP ──</p>
-<p class="p1">let traceSel = null;</p>
-<p class="p1">function renderTraceability() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const conn = getConnected(traceSel);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const cols = [</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ title:'Outcomes',<span class="Apple-converted-space">            </span>items: DB.outcomes,<span class="Apple-converted-space">  </span>color: C.teal, <span class="Apple-converted-space">  </span>type:'o',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>label: x=&gt;x.label, isDim: x=&gt; traceSel &amp;&amp; !conn.outcomes.has(x.id), isActive: x=&gt;traceSel===x.id,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>nodeColor: x=&gt;x.color },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ title:'Core capabilities', <span class="Apple-converted-space">  </span>items: DB.caps,<span class="Apple-converted-space">      </span>color: C.purple, type:'c',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>label: x=&gt;x.label, isDim: x=&gt; traceSel &amp;&amp; !conn.caps.has(x.id), <span class="Apple-converted-space">    </span>isActive: x=&gt;traceSel===x.id,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>nodeColor: ()=&gt;C.gray },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ title:'Learning objectives',<span class="Apple-converted-space">  </span>items: DB.objs,<span class="Apple-converted-space">      </span>color: C.coral,<span class="Apple-converted-space">  </span>type:'l',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>label: x=&gt;x.label, isDim: x=&gt; traceSel &amp;&amp; !conn.objs.has(x.id), <span class="Apple-converted-space">    </span>isActive: x=&gt;traceSel===x.id,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>nodeColor: ()=&gt;C.gray },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ title:'Features',<span class="Apple-converted-space">            </span>items: DB.features,<span class="Apple-converted-space">  </span>color: C.pink, <span class="Apple-converted-space">  </span>type:'f',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>label: x=&gt;x.label, isDim: x=&gt; traceSel &amp;&amp; !conn.feats.has(x.id),<span class="Apple-converted-space">    </span>isActive: x=&gt;traceSel===x.id,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>nodeColor: ()=&gt;C.gray },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const colsHtml = cols.map(col =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const nodes = col.items.map(item =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const nc = col.nodeColor(item);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const dim = col.isDim(item);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const active = col.isActive(item);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const qBadge = item.quarter</p>
-<p class="p1"><span class="Apple-converted-space">        </span>? `&lt;span class="tag" style="background:#F1EFE8;color:#5F5E5A;"&gt;${item.quarter}&lt;/span&gt;` : '';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return `&lt;div class="trace-node ${active?'active':''} ${dim?'dimmed':''}"</p>
-<p class="p1"><span class="Apple-converted-space">        </span>style="background:${nc.bg};border-color:${dim?nc.mid+'44':nc.border};color:${nc.text};</p>
-<p class="p1"><span class="Apple-converted-space">        </span>${active?`box-shadow:0 0 0 2.5px ${nc.border}50`:''}"</p>
-<p class="p1"><span class="Apple-converted-space">        </span>onclick="traceClick('${item.id}')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>${col.label(item)} ${qBadge}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return `&lt;div class="trace-col"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="trace-col-header" style="background:${col.color.bg};border-color:${col.color.border};color:${col.color.text}"&gt;${col.title}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="trace-col-body" style="border-color:${col.color.border}"&gt;${nodes}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const countHtml = traceSel</p>
-<p class="p1"><span class="Apple-converted-space">    </span>? `&lt;div class="trace-count"&gt;${conn.outcomes.size} outcome${conn.outcomes.size!==1?'s':''} &amp;middot; ${conn.caps.size} capabilit${conn.caps.size!==1?'ies':'y'} &amp;middot; ${conn.objs.size} objective${conn.objs.size!==1?'s':''} &amp;middot; ${conn.feats.size} feature${conn.feats.size!==1?'s':''}&lt;/div&gt;` : '';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('tab-traceability').innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="font-size:11px;color:#888780;margin-bottom:12px;text-align:center"&gt;Click any node to trace connections. Click again to reset.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="trace-grid"&gt;${colsHtml}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>${countHtml}`;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function traceClick(id) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>traceSel = traceSel === id ? null : id;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderTraceability();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// ── EXEC VIEW ──</p>
-<p class="p1">let execSelOutcome = null, execSelFeature = null;</p>
-<p class="p1">function renderExec() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const quarters = [...new Set(DB.features.map(f=&gt;f.quarter).filter(Boolean))].sort();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const visFeatures = DB.features.filter(f =&gt; !execSelOutcome || f.outcomeIds.includes(execSelOutcome));</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const outcomeCards = DB.outcomes.map(o =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const dim = execSelOutcome &amp;&amp; execSelOutcome !== o.id;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return `&lt;div class="outcome-card" onclick="execOutcomeClick('${o.id}')"</p>
-<p class="p1"><span class="Apple-converted-space">      </span>style="background:${dim?'#F1EFE8':o.color.bg};border-color:${dim?'#D3D1C7':o.color.border};opacity:${dim?0.45:1}"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 style="color:${dim?'#888780':o.color.text}"&gt;${o.label}&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p style="color:${dim?'#B4B2A9':o.color.text}"&gt;${o.desc}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const timelineHtml = quarters.map(q =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const qf = visFeatures.filter(f=&gt;f.quarter===q);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const cards = qf.length === 0</p>
-<p class="p1"><span class="Apple-converted-space">      </span>? `&lt;span style="font-size:11px;color:#b4b2a9;padding-top:8px;"&gt;No features match this outcome&lt;/span&gt;`</p>
-<p class="p1"><span class="Apple-converted-space">      </span>: qf.map(f =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>const ss = statusStyle(f.status);</p>
-<p class="p1"><span class="Apple-converted-space">          </span>const dots = f.outcomeIds.map(oid =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const o = byId(DB.outcomes, oid);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return o ? `&lt;span class="dot" style="background:${o.color.mid}" title="${o.label}"&gt;&lt;/span&gt;` : '';</p>
-<p class="p1"><span class="Apple-converted-space">          </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">          </span>return `&lt;div class="feature-card ${execSelFeature===f.id?'selected':''}" onclick="execFeatureClick('${f.id}')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h4&gt;${f.label}&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="meta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="tag" style="background:${ss.bg};color:${ss.text}"&gt;${f.status}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>${dots}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return `&lt;div class="timeline-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="q-label"&gt;${q}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="q-features"&gt;${cards}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>let detailHtml = '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (execSelFeature) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const f = byId(DB.features, execSelFeature);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (f) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const ss = statusStyle(f.status);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const outcomePills = f.outcomeIds.map(oid =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const o = byId(DB.outcomes, oid);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>return o ? `&lt;span class="pill" style="background:${o.color.bg};color:${o.color.text};border:1px solid ${o.color.border}"&gt;${o.label}&lt;/span&gt;` : '';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>detailHtml = `&lt;div class="detail-panel"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;${f.label}&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="tag" style="background:${ss.bg};color:${ss.text};margin-left:8px"&gt;${f.status}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>${f.problem ? `&lt;div style="font-size:12px;color:#444441;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#fff;border:1px solid #e0dfd8;border-radius:6px"&gt;${f.problem}&lt;/div&gt;` : ''}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="detail-section"&gt;&lt;div class="label"&gt;Outcomes&lt;/div&gt;&lt;div class="items"&gt;${outcomePills}&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const filterNote = execSelOutcome</p>
-<p class="p1"><span class="Apple-converted-space">    </span>? `&lt;span style="color:${byId(DB.outcomes,execSelOutcome)?.color.mid}"&gt; · filtered by "${byId(DB.outcomes,execSelOutcome)?.label}"&lt;/span&gt;` : '';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('tab-exec').innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:#888780;margin-bottom:8px"&gt;Strategic outcomes&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="outcome-row"&gt;${outcomeCards}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:#888780;margin-bottom:10px"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Feature timeline${filterNote}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>${timelineHtml}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>${detailHtml}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>${Object.entries(STATUS_STYLE).map(([s,c])=&gt;`&lt;div style="display:flex;align-items:center;gap:5px"&gt;&lt;span style="width:9px;height:9px;border-radius:2px;background:${c.bg};border:1px solid ${c.text};display:inline-block"&gt;&lt;/span&gt;&lt;span style="font-size:11px;color:#888780"&gt;${s}&lt;/span&gt;&lt;/div&gt;`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;`;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function execOutcomeClick(id) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>execSelOutcome = execSelOutcome===id ? null : id;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>execSelFeature = null;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderExec();</p>
-<p class="p1">}</p>
-<p class="p1">function execFeatureClick(id) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>execSelFeature = execSelFeature===id ? null : id;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderExec();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// ── PARTNER VIEW ──</p>
-<p class="p1">let partnerSel = null, partnerLayer = 'outcomes';</p>
-<p class="p1">function renderPartner() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const quarters = [...new Set(DB.features.map(f=&gt;f.quarter).filter(Boolean))].sort();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const layerBtns = ['outcomes','capabilities','objectives'].map(l =&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>`&lt;button class="layer-btn ${partnerLayer===l?'active':''}" onclick="partnerLayer='${l}';renderPartner()"&gt;${</p>
-<p class="p1"><span class="Apple-converted-space">      </span>l==='outcomes'?'Outcomes':l==='capabilities'?'+ Capabilities':'+ Objectives'</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}&lt;/button&gt;`</p>
-<p class="p1"><span class="Apple-converted-space">  </span>).join('');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>let stratHtml = '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (partnerLayer === 'outcomes') {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>stratHtml = `&lt;div class="outcome-row"&gt;${DB.outcomes.map(o=&gt;`</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="outcome-card" style="background:${o.color.bg};border-color:${o.color.border};cursor:default"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 style="color:${o.color.text}"&gt;${o.label}&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p style="color:${o.color.text}"&gt;${o.desc}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`).join('')}&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>stratHtml = DB.outcomes.map(o =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const oCaps = DB.caps.filter(c=&gt;c.outcomeIds.includes(o.id));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const capsHtml = oCaps.map(c =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const objsHtml = partnerLayer==='objectives'</p>
-<p class="p1"><span class="Apple-converted-space">          </span>? `&lt;ul style="margin:4px 0 0;padding-left:14px"&gt;${DB.objs.filter(l=&gt;l.capIds.includes(c.id)).map(l=&gt;`&lt;li style="font-size:10.5px;color:#5F5E5A;line-height:1.5"&gt;${l.label}&lt;/li&gt;`).join('')}&lt;/ul&gt;` : '';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>return `&lt;div class="card-sm" style="min-width:150px;flex:1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div style="font-size:11px;font-weight:500;color:#1a1a18"&gt;${c.label}&lt;/div&gt;${objsHtml}&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return `&lt;div style="border-radius:8px;border:1px solid ${o.color.border};background:${o.color.bg};padding:10px 12px;margin-bottom:8px"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="font-size:12px;font-weight:500;color:${o.color.text};margin-bottom:7px"&gt;${o.label}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="display:flex;flex-wrap:wrap;gap:6px"&gt;${capsHtml}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const timelineHtml = quarters.map(q =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const cards = DB.features.filter(f=&gt;f.quarter===q).map(f =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const ss = statusStyle(f.status);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const userFacing = !['infrastructure','backend'].some(k=&gt;(f.type||'').toLowerCase().includes(k));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const dots = f.outcomeIds.map(oid =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const o = byId(DB.outcomes, oid);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>return o ? `&lt;span class="dot" style="background:${o.color.mid}"&gt;&lt;/span&gt;` : '';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return `&lt;div class="feature-card ${partnerSel===f.id?'selected':''}" onclick="partnerFeatureClick('${f.id}')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h4&gt;${f.label}&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="meta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="tag" style="background:${ss.bg};color:${ss.text}"&gt;${f.status}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="tag" style="background:${userFacing?'#E6F1FB':'#F1EFE8'};color:${userFacing?'#0C447C':'#5F5E5A'}"&gt;${userFacing?'User-facing':'Infrastructure'}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>${dots}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return `&lt;div class="timeline-row"&gt;&lt;div class="q-label"&gt;${q}&lt;/div&gt;&lt;div class="q-features"&gt;${cards}&lt;/div&gt;&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>let detailHtml = '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (partnerSel) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const f = byId(DB.features, partnerSel);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (f) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const ss = statusStyle(f.status);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const opills = f.outcomeIds.map(oid=&gt;{const o=byId(DB.outcomes,oid);return o?`&lt;span class="pill" style="background:${o.color.bg};color:${o.color.text};border:1px solid ${o.color.border}"&gt;${o.label}&lt;/span&gt;`:''}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const cpills = f.capIds.map(cid=&gt;{const c=byId(DB.caps,cid);return c?`&lt;span class="pill" style="background:${C.gray.bg};color:${C.gray.text};border:1px solid ${C.gray.border}"&gt;${c.label}&lt;/span&gt;`:''}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const lpills = f.objIds.map(lid=&gt;{const l=byId(DB.objs,lid);return l?`&lt;span class="pill" style="background:${C.gray.bg};color:${C.gray.text};border:1px solid ${C.gray.border}"&gt;${l.label}&lt;/span&gt;`:''}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>detailHtml = `&lt;div class="detail-panel"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;${f.label}&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="tag" style="background:${ss.bg};color:${ss.text};margin-left:8px"&gt;${f.status}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>${f.problem?`&lt;div style="font-size:12px;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#fff;border:1px solid #e0dfd8;border-radius:6px;color:#444441"&gt;${f.problem}&lt;/div&gt;`:''}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>${f.risks?`&lt;div style="font-size:12px;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#FAECE7;border:1px solid #F5C4B3;border-radius:6px;color:#712B13"&gt;&lt;strong&gt;Risks:&lt;/strong&gt; ${f.risks}&lt;/div&gt;`:''}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="detail-section"&gt;&lt;div class="label"&gt;Outcomes&lt;/div&gt;&lt;div class="items"&gt;${oills||'—'}&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="detail-section"&gt;&lt;div class="label"&gt;Core capabilities&lt;/div&gt;&lt;div class="items"&gt;${cpills||'—'}&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="detail-section"&gt;&lt;div class="label"&gt;Learning objectives&lt;/div&gt;&lt;div class="items"&gt;${lpills||'—'}&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('tab-partner').innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card" style="margin-bottom:18px"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="font-size:13px;font-weight:500;margin-bottom:4px"&gt;Bible Loop — partner roadmap&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="font-size:12px;color:#888780;line-height:1.5"&gt;This view shows how planned features connect to the outcomes and learning goals we're building toward together. Use the layer toggle to explore the strategic logic, and click any feature for detail.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="layer-toggle"&gt;&lt;span&gt;Show strategy layer:&lt;/span&gt;${layerBtns}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>${stratHtml}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:#888780;margin-bottom:10px;margin-top:4px"&gt;Delivery timeline&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>${timelineHtml}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>${detailHtml}`;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function partnerFeatureClick(id) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>partnerSel = partnerSel===id ? null : id;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderPartner();</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p2"><span class="s2">import</span><span class="s1"> </span><span class="s3">{</span><span class="s1"> useState </span><span class="s3">}</span><span class="s1"> </span><span class="s2">from</span><span class="s1"> </span><span class="s4">"react"</span><span class="s3">;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">const</span><span class="s5"> </span><span class="s6">HTML</span><span class="s5"> = </span><span class="s1">`&lt;!DOCTYPE html&gt;</span></p>
+<p class="p2"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p2"><span class="s1">&lt;head&gt;</span></p>
+<p class="p2"><span class="s1">&lt;meta charset="UTF-8"/&gt;</span></p>
+<p class="p2"><span class="s1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</span></p>
+<p class="p2"><span class="s1">&lt;title&gt;Bible Loop Roadmap&lt;/title&gt;</span></p>
+<p class="p2"><span class="s1">&lt;style&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>* { box-sizing: border-box; margin: 0; padding: 0; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f4f0; color: #1a1a18; min-height: 100vh; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>#gate { position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background: #f5f4f0; display: flex; align-items: center; justify-content: center; z-index: 9999; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>#gate.hidden { display: none !important; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.gate-card { background: #fff; border: 1px solid #d3d1c7; border-radius: 12px; padding: 32px; width: 320px; text-align: center; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.gate-card h2 { font-size: 16px; font-weight: 500; margin-bottom: 6px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.gate-card p { font-size: 12px; color: #888780; margin-bottom: 20px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.gate-card input { width: 100%; padding: 9px 12px; border: 1px solid #d3d1c7; border-radius: 7px; font-size: 13px; margin-bottom: 10px; outline: none; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.gate-card input:focus { border-color: #7F77DD; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.gate-card button { width: 100%; padding: 9px; background: #1D9E75; color: #fff; border: none; border-radius: 7px; font-size: 13px; font-weight: 500; cursor: pointer; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.gate-card .err { font-size: 11px; color: #D85A30; margin-top: 6px; display: none; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>#app { display: none; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>#app.visible { display: block; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>header { background: #fff; border-bottom: 1px solid #e0dfd8; padding: 0 24px; display: flex; align-items: center; gap: 0; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>header h1 { font-size: 14px; font-weight: 500; color: #1a1a18; padding: 16px 0; margin-right: 24px; white-space: nowrap; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>nav { display: flex; gap: 0; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>nav button { font-size: 13px; padding: 18px 16px; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; color: #888780; font-weight: 400; white-space: nowrap; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>nav button.active { color: #1D9E75; border-bottom-color: #1D9E75; font-weight: 500; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>nav button:hover:not(.active) { color: #1a1a18; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>main { padding: 24px; max-width: 1100px; margin: 0 auto; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.loading { text-align: center; padding: 60px; color: #888780; font-size: 13px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.loading .spinner { width: 24px; height: 24px; border: 2px solid #e0dfd8; border-top-color: #1D9E75; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 12px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>@keyframes spin { to { transform: rotate(360deg); } }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.pill { display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.tag<span class="Apple-converted-space">  </span>{ display: inline-flex; align-items: center; font-size: 10px; padding: 1px 6px; border-radius: 3px; white-space: nowrap; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.dot<span class="Apple-converted-space">  </span>{ width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.card { background: #fff; border: 1px solid #e0dfd8; border-radius: 10px; padding: 14px 16px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.card-sm { background: #fff; border: 1px solid #e0dfd8; border-radius: 8px; padding: 10px 12px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.outcome-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.outcome-card { flex: 1 1 180px; padding: 10px 12px; border-radius: 8px; cursor: pointer; border: 1.5px solid; transition: all 0.12s; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.outcome-card h3 { font-size: 12px; font-weight: 500; margin-bottom: 3px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.outcome-card p<span class="Apple-converted-space">  </span>{ font-size: 11px; line-height: 1.4; opacity: 0.8; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.timeline-row { display: flex; gap: 0; margin-bottom: 14px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.q-label { width: 80px; flex-shrink: 0; padding-top: 8px; font-size: 11px; font-weight: 500; color: #888780; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.q-features { flex: 1; display: flex; flex-wrap: wrap; gap: 7px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.feature-card { padding: 9px 11px; border-radius: 8px; cursor: pointer; background: #fff; border: 1px solid #e0dfd8; min-width: 150px; flex: 0 1 auto; transition: all 0.12s; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.feature-card:hover { border-color: #b4b2a9; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.feature-card.selected { border-color: #888780; box-shadow: 0 0 0 2px #d3d1c7; background: #f8f7f4; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.feature-card h4 { font-size: 12px; font-weight: 500; margin-bottom: 5px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.feature-card .meta { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.detail-panel { margin-top: 8px; padding: 14px 16px; border-radius: 8px; background: #f8f7f4; border: 1px solid #d3d1c7; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.detail-panel h3 { font-size: 13px; font-weight: 500; margin-bottom: 6px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.detail-section { margin-top: 10px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.detail-section .label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: #888780; margin-bottom: 5px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.detail-section .items { display: flex; flex-wrap: wrap; gap: 5px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.trace-grid { display: flex; gap: 10px; align-items: stretch; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.trace-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.trace-col-header { font-size: 10.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; padding: 6px 10px; border-radius: 7px 7px 0 0; text-align: center; border: 1px solid; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.trace-col-body { border: 1px solid; border-top: none; border-radius: 0 0 7px 7px; padding: 8px; display: flex; flex-direction: column; gap: 5px; flex: 1; background: #fff; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.trace-node { padding: 6px 9px; border-radius: 6px; cursor: pointer; font-size: 11.5px; border: 1.5px solid; transition: all 0.12s; line-height: 1.4; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.trace-node.active { box-shadow: 0 0 0 2.5px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.trace-node.dimmed { opacity: 0.3; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.trace-count { margin-top: 10px; text-align: center; font-size: 11px; color: #888780; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.layer-toggle { display: flex; gap: 6px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.layer-toggle span { font-size: 11px; color: #888780; margin-right: 2px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.layer-btn { font-size: 11px; padding: 4px 10px; border-radius: 5px; cursor: pointer; border: 1px solid #d3d1c7; background: #f8f7f4; color: #888780; font-weight: 400; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.layer-btn.active { background: #E6F1FB; color: #0C447C; border-color: #85B7EB; font-weight: 500; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.error-box { background: #FCEBEB; border: 1px solid #F09595; border-radius: 8px; padding: 14px 16px; font-size: 12px; color: #791F1F; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>@media (max-width: 640px) { .trace-grid { flex-direction: column; } nav { overflow-x: auto; } }</span></p>
+<p class="p2"><span class="s1">&lt;/style&gt;</span></p>
+<p class="p2"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p2"><span class="s1">&lt;body&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">&lt;div id="gate"&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="gate-card"&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Bible Loop Roadmap&lt;/h2&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Enter the access password to continue.&lt;/p&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;input type="password" id="pw-input" placeholder="Password" onkeydown="if(event.key==='Enter')checkPw()"/&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="checkPw()"&gt;Enter&lt;/button&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="err" id="pw-err"&gt;Incorrect password&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">&lt;div id="app"&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;header&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Bible Loop Roadmap&lt;/h1&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="active" onclick="showTab('traceability',this)"&gt;Traceability map&lt;/button&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="showTab('exec',this)"&gt;Executive view&lt;/button&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="showTab('partner',this)"&gt;Partner view&lt;/button&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;main&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="tab-traceability"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="tab-exec" style="display:none"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="tab-partner" style="display:none"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</span></p>
+<p class="p2"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">&lt;script&gt;</span></p>
+<p class="p2"><span class="s1">const AIRTABLE_TOKEN = '</span><span class="s7">patqyVGfVHN7RWD5s</span><span class="s1">';</span></p>
+<p class="p2"><span class="s1">const BASE_ID<span class="Apple-converted-space">        </span>= 'app9JyUAmnAkOQ4mV';</span></p>
+<p class="p2"><span class="s1">const PAGE_PASSWORD<span class="Apple-converted-space">  </span>= ‘everyteen’;</span></p>
+<p class="p2"><span class="s1">console.log('Bible Loop Roadmap: script loaded');</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">function checkPw() {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>if (document.getElementById('pw-input').value === PAGE_PASSWORD) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('gate').classList.add('hidden');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('app').classList.add('visible');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>loadData();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>} else {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('pw-err').style.display = 'block';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">function showTab(name, btn) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>['traceability','exec','partner'].forEach(t =&gt; {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('tab-'+t).style.display = t===name ? 'block' : 'none';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>document.querySelectorAll('nav button').forEach(b =&gt; b.classList.remove('active'));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>btn.classList.add('active');</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">async function fetchTable(tableName, fields) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const params = new URLSearchParams({ pageSize: 100 });</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>if (fields) fields.forEach(f =&gt; params.append('fields[]', f));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const rows = [];</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>let offset = null;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>do {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>if (offset) params.set('offset', offset);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const res = await fetch(</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>'https://api.airtable.com/v0/' + BASE_ID + '/' + encodeURIComponent(tableName) + '?' + params,</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>{ headers: { Authorization: 'Bearer ' + AIRTABLE_TOKEN } }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>if (!res.ok) throw new Error('Airtable error ' + res.status + ' on table "' + tableName + '"');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const data = await res.json();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>rows.push(...data.records);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>offset = data.offset || null;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>} while (offset);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>return rows;</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">const C = {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>teal: <span class="Apple-converted-space">  </span>{ bg:'#E1F5EE', border:'#1D9E75', text:'#085041', mid:'#1D9E75' },</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>purple: { bg:'#EEEDFE', border:'#7F77DD', text:'#3C3489', mid:'#7F77DD' },</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>coral:<span class="Apple-converted-space">  </span>{ bg:'#FAECE7', border:'#D85A30', text:'#712B13', mid:'#D85A30' },</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>pink: <span class="Apple-converted-space">  </span>{ bg:'#FBEAF0', border:'#D4537E', text:'#72243E', mid:'#D4537E' },</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>gray: <span class="Apple-converted-space">  </span>{ bg:'#F1EFE8', border:'#888780', text:'#5F5E5A', mid:'#888780' },</span></p>
+<p class="p2"><span class="s1">};</span></p>
+<p class="p2"><span class="s1">const OUTCOME_COLORS = [C.teal, C.purple, C.coral, C.pink];</span></p>
+<p class="p2"><span class="s1">const STATUS_STYLE = {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>'In development': { bg:'#E1F5EE', text:'#085041' },</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>'In design':<span class="Apple-converted-space">      </span>{ bg:'#EEEDFE', text:'#3C3489' },</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>'Backlog':<span class="Apple-converted-space">        </span>{ bg:'#F1EFE8', text:'#5F5E5A' },</span></p>
+<p class="p2"><span class="s1">};</span></p>
+<p class="p2"><span class="s1">function statusStyle(s) { return STATUS_STYLE[s] || { bg:'#F1EFE8', text:'#5F5E5A' }; }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">let DB = {};</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">async function loadData() {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>showLoading('tab-traceability');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>showLoading('tab-exec');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>showLoading('tab-partner');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>try {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const [outcomes, caps, objs, features] = await Promise.all([</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>fetchTable('Outcomes',<span class="Apple-converted-space">            </span>['Bible Loop Outcome','Description']),</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>fetchTable('Capabilities',<span class="Apple-converted-space">        </span>['Name','Related Outcomes','Learning Objectives']),</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>fetchTable('Learning Objectives', ['Learning Objective','Capabilities','Outcomes']),</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>fetchTable('Features',<span class="Apple-converted-space">            </span>['Name','Status','Target Delivery','Outcomes','Core Capabilities','Learning Objectives','Problem Statement','Risks','YV Type']),</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>]);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>DB.outcomes = outcomes.map((r,i) =&gt; ({</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>id:r.id, label:r.fields['Bible Loop Outcome']||'(unnamed)',</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>desc:r.fields['Description']||'', color:OUTCOME_COLORS[i%OUTCOME_COLORS.length],</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>DB.caps = caps.map(r =&gt; ({</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>id:r.id, label:r.fields['Name']||'(unnamed)',</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>outcomeIds:r.fields['Related Outcomes']||[],</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>objIds:r.fields['Learning Objectives']||[],</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>DB.objs = objs.map(r =&gt; ({</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>id:r.id, label:r.fields['Learning Objective']||'(unnamed)',</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>capIds:r.fields['Capabilities']||[],</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>outcomeIds:r.fields['Outcomes']||[],</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>DB.features = features.map(r =&gt; ({</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>id:r.id, label:r.fields['Name']||'(unnamed)',</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>status:r.fields['Status']||'',</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>quarter:r.fields['Target Delivery']||'TBD',</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>outcomeIds:r.fields['Outcomes']||[],</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>capIds:r.fields['Core Capabilities']||[],</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>objIds:r.fields['Learning Objectives']||[],</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>problem:r.fields['Problem Statement']||'',</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>risks:r.fields['Risks']||'',</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>type:r.fields['YV Type']||'',</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>renderTraceability();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>renderExec();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>renderPartner();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>} catch(e) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>['traceability','exec','partner'].forEach(t =&gt; {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById('tab-'+t).innerHTML =</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>'&lt;div class="error-box"&gt;Failed to load: ' + e.message + '&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">function showLoading(id) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById(id).innerHTML =</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>'&lt;div class="loading"&gt;&lt;div class="spinner"&gt;&lt;/div&gt;Loading from Airtable...&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">function byId(arr, id) { return arr.find(x =&gt; x.id === id); }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">function getConnected(sel) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>if (!sel) return { outcomes:new Set(), caps:new Set(), objs:new Set(), feats:new Set() };</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>let outcomes=new Set(), caps=new Set(), objs=new Set(), feats=new Set();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const addCap = cid =&gt; {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const c = byId(DB.caps,cid); if(!c) return;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>caps.add(cid);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>c.outcomeIds.forEach(o=&gt;outcomes.add(o));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>DB.objs.filter(l=&gt;l.capIds.includes(cid)).forEach(l=&gt;{</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>objs.add(l.id);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>DB.features.filter(f=&gt;f.objIds.includes(l.id)).forEach(f=&gt;feats.add(f.id));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>};</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const addObj = lid =&gt; {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const l=byId(DB.objs,lid); if(!l) return;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>objs.add(lid);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>l.capIds.forEach(c=&gt;addCap(c));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>DB.features.filter(f=&gt;f.objIds.includes(lid)).forEach(f=&gt;feats.add(f.id));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>};</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>if (DB.outcomes.some(x=&gt;x.id===sel)) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>outcomes.add(sel);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>DB.caps.filter(c=&gt;c.outcomeIds.includes(sel)).forEach(c=&gt;addCap(c.id));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>} else if (DB.caps.some(x=&gt;x.id===sel)) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>addCap(sel);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>} else if (DB.objs.some(x=&gt;x.id===sel)) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>addObj(sel);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>} else if (DB.features.some(x=&gt;x.id===sel)) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>feats.add(sel);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const f=byId(DB.features,sel);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>f.objIds.forEach(o=&gt;addObj(o));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>f.capIds.forEach(c=&gt;addCap(c));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>f.outcomeIds.forEach(o=&gt;outcomes.add(o));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>return { outcomes, caps, objs, feats };</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">let traceSel = null;</span></p>
+<p class="p2"><span class="s1">function renderTraceability() {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const conn = getConnected(traceSel);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const cols = [</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>{ title:'Outcomes', <span class="Apple-converted-space">          </span>items:DB.outcomes, color:C.teal, <span class="Apple-converted-space">  </span>nodeColor:x=&gt;x.color,<span class="Apple-converted-space">  </span>set:conn.outcomes },</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>{ title:'Core capabilities',<span class="Apple-converted-space">  </span>items:DB.caps, <span class="Apple-converted-space">    </span>color:C.purple, nodeColor:()=&gt;C.gray,<span class="Apple-converted-space">  </span>set:conn.caps <span class="Apple-converted-space">    </span>},</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>{ title:'Learning objectives', items:DB.objs, <span class="Apple-converted-space">    </span>color:C.coral,<span class="Apple-converted-space">  </span>nodeColor:()=&gt;C.gray,<span class="Apple-converted-space">  </span>set:conn.objs <span class="Apple-converted-space">    </span>},</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>{ title:'Features', <span class="Apple-converted-space">          </span>items:DB.features, color:C.pink, <span class="Apple-converted-space">  </span>nodeColor:()=&gt;C.gray,<span class="Apple-converted-space">  </span>set:conn.feats<span class="Apple-converted-space">    </span>},</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>];</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const colsHtml = cols.map(col =&gt; {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const nodes = col.items.map(item =&gt; {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const nc=col.nodeColor(item), dim=traceSel&amp;&amp;!col.set.has(item.id), active=traceSel===item.id;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const qb=item.quarter?'&lt;span class="tag" style="background:#F1EFE8;color:#5F5E5A"&gt;'+item.quarter+'&lt;/span&gt;':'';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>return '&lt;div class="trace-node'+(active?' active':'')+(dim?' dimmed':'')+'" style="background:'+nc.bg+';border-color:'+(dim?nc.mid+'44':nc.border)+';color:'+nc.text+';'+(active?'box-shadow:0 0 0 2.5px '+nc.border+'50':'')+'" onclick="traceClick(\''+item.id+'\')"&gt;'+item.label+' '+qb+'&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>return '&lt;div class="trace-col"&gt;&lt;div class="trace-col-header" style="background:'+col.color.bg+';border-color:'+col.color.border+';color:'+col.color.text+'"&gt;'+col.title+'&lt;/div&gt;&lt;div class="trace-col-body" style="border-color:'+col.color.border+'"&gt;'+nodes+'&lt;/div&gt;&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const countHtml = traceSel</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>? '&lt;div class="trace-count"&gt;'+conn.outcomes.size+' outcomes &amp;middot; '+conn.caps.size+' capabilities &amp;middot; '+conn.objs.size+' objectives &amp;middot; '+conn.feats.size+' features&lt;/div&gt;' : '';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('tab-traceability').innerHTML =</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>'&lt;div style="font-size:11px;color:#888780;margin-bottom:12px;text-align:center"&gt;Click any node to trace connections. Click again to reset.&lt;/div&gt;&lt;div class="trace-grid"&gt;'+colsHtml+'&lt;/div&gt;'+countHtml;</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p2"><span class="s1">function traceClick(id) { traceSel = traceSel===id?null:id; renderTraceability(); }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">let execSelOutcome=null, execSelFeature=null;</span></p>
+<p class="p2"><span class="s1">function renderExec() {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const quarters=[...new Set(DB.features.map(f=&gt;f.quarter).filter(Boolean))].sort();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const visF=DB.features.filter(f=&gt;!execSelOutcome||f.outcomeIds.includes(execSelOutcome));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const outcomeCards=DB.outcomes.map(o=&gt;{</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const dim=execSelOutcome&amp;&amp;execSelOutcome!==o.id;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>return '&lt;div class="outcome-card" onclick="execOutcomeClick(\''+o.id+'\')" style="background:'+(dim?'#F1EFE8':o.color.bg)+';border-color:'+(dim?'#D3D1C7':o.color.border)+';opacity:'+(dim?0.45:1)+'"&gt;&lt;h3 style="color:'+(dim?'#888780':o.color.text)+'"&gt;'+o.label+'&lt;/h3&gt;&lt;p style="color:'+(dim?'#B4B2A9':o.color.text)+'"&gt;'+o.desc+'&lt;/p&gt;&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const timelineHtml=quarters.map(q=&gt;{</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const qf=visF.filter(f=&gt;f.quarter===q);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const cards=qf.length===0</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>? '&lt;span style="font-size:11px;color:#b4b2a9;padding-top:8px"&gt;No features match this outcome&lt;/span&gt;'</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>: qf.map(f=&gt;{</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>const ss=statusStyle(f.status);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>const dots=f.outcomeIds.map(oid=&gt;{const o=byId(DB.outcomes,oid);return o?'&lt;span class="dot" style="background:'+o.color.mid+'" title="'+o.label+'"&gt;&lt;/span&gt;':''}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>return '&lt;div class="feature-card'+(execSelFeature===f.id?' selected':'')+'" onclick="execFeatureClick(\''+f.id+'\')"&gt;&lt;h4&gt;'+f.label+'&lt;/h4&gt;&lt;div class="meta"&gt;&lt;span class="tag" style="background:'+ss.bg+';color:'+ss.text+'"&gt;'+f.status+'&lt;/span&gt;'+dots+'&lt;/div&gt;&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>return '&lt;div class="timeline-row"&gt;&lt;div class="q-label"&gt;'+q+'&lt;/div&gt;&lt;div class="q-features"&gt;'+cards+'&lt;/div&gt;&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>let detailHtml='';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>if (execSelFeature) {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const f=byId(DB.features,execSelFeature);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>if(f){</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const ss=statusStyle(f.status);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const op=f.outcomeIds.map(oid=&gt;{const o=byId(DB.outcomes,oid);return o?'&lt;span class="pill" style="background:'+o.color.bg+';color:'+o.color.text+';border:1px solid '+o.color.border+'"&gt;'+o.label+'&lt;/span&gt;':''}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>detailHtml='&lt;div class="detail-panel"&gt;&lt;div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"&gt;&lt;h3&gt;'+f.label+'&lt;/h3&gt;&lt;span class="tag" style="background:'+ss.bg+';color:'+ss.text+';margin-left:8px"&gt;'+f.status+'&lt;/span&gt;&lt;/div&gt;'+(f.problem?'&lt;div style="font-size:12px;color:#444441;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#fff;border:1px solid #e0dfd8;border-radius:6px"&gt;'+f.problem+'&lt;/div&gt;':'')+'&lt;div class="detail-section"&gt;&lt;div class="label"&gt;Outcomes&lt;/div&gt;&lt;div class="items"&gt;'+op+'&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const fn=execSelOutcome?'&lt;span style="color:'+byId(DB.outcomes,execSelOutcome)?.color.mid+'"&gt; &amp;middot; filtered by "'+byId(DB.outcomes,execSelOutcome)?.label+'"&lt;/span&gt;':'';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('tab-exec').innerHTML=</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>'&lt;div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:#888780;margin-bottom:8px"&gt;Strategic outcomes&lt;/div&gt;&lt;div class="outcome-row"&gt;'+outcomeCards+'&lt;/div&gt;&lt;div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:#888780;margin-bottom:10px"&gt;Feature timeline'+fn+'&lt;/div&gt;'+timelineHtml+detailHtml+'&lt;div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"&gt;'+Object.entries(STATUS_STYLE).map(([s,c])=&gt;'&lt;div style="display:flex;align-items:center;gap:5px"&gt;&lt;span style="width:9px;height:9px;border-radius:2px;background:'+c.bg+';border:1px solid '+c.text+';display:inline-block"&gt;&lt;/span&gt;&lt;span style="font-size:11px;color:#888780"&gt;'+s+'&lt;/span&gt;&lt;/div&gt;').join('')+'&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p2"><span class="s1">function execOutcomeClick(id){execSelOutcome=execSelOutcome===id?null:id;execSelFeature=null;renderExec();}</span></p>
+<p class="p2"><span class="s1">function execFeatureClick(id){execSelFeature=execSelFeature===id?null:id;renderExec();}</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">let partnerSel=null, partnerLayer='outcomes';</span></p>
+<p class="p2"><span class="s1">function renderPartner(){</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const quarters=[...new Set(DB.features.map(f=&gt;f.quarter).filter(Boolean))].sort();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const layerBtns=['outcomes','capabilities','objectives'].map(l=&gt;'&lt;button class="layer-btn'+(partnerLayer===l?' active':'')+'" onclick="partnerLayer=\''+l+'\';renderPartner()"&gt;'+(l==='outcomes'?'Outcomes':l==='capabilities'?'+ Capabilities':'+ Objectives')+'&lt;/button&gt;').join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>let stratHtml='';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>if(partnerLayer==='outcomes'){</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>stratHtml='&lt;div class="outcome-row"&gt;'+DB.outcomes.map(o=&gt;'&lt;div class="outcome-card" style="background:'+o.color.bg+';border-color:'+o.color.border+';cursor:default"&gt;&lt;h3 style="color:'+o.color.text+'"&gt;'+o.label+'&lt;/h3&gt;&lt;p style="color:'+o.color.text+'"&gt;'+o.desc+'&lt;/p&gt;&lt;/div&gt;').join('')+'&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>} else {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>stratHtml=DB.outcomes.map(o=&gt;{</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const oCaps=DB.caps.filter(c=&gt;c.outcomeIds.includes(o.id));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const capsHtml=oCaps.map(c=&gt;{</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>const objsHtml=partnerLayer==='objectives'?'&lt;ul style="margin:4px 0 0;padding-left:14px"&gt;'+DB.objs.filter(l=&gt;l.capIds.includes(c.id)).map(l=&gt;'&lt;li style="font-size:10.5px;color:#5F5E5A;line-height:1.5"&gt;'+l.label+'&lt;/li&gt;').join('')+'&lt;/ul&gt;':'';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>return '&lt;div class="card-sm" style="min-width:150px;flex:1"&gt;&lt;div style="font-size:11px;font-weight:500;color:#1a1a18"&gt;'+c.label+'&lt;/div&gt;'+objsHtml+'&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>return '&lt;div style="border-radius:8px;border:1px solid '+o.color.border+';background:'+o.color.bg+';padding:10px 12px;margin-bottom:8px"&gt;&lt;div style="font-size:12px;font-weight:500;color:'+o.color.text+';margin-bottom:7px"&gt;'+o.label+'&lt;/div&gt;&lt;div style="display:flex;flex-wrap:wrap;gap:6px"&gt;'+capsHtml+'&lt;/div&gt;&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const timelineHtml=quarters.map(q=&gt;{</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const cards=DB.features.filter(f=&gt;f.quarter===q).map(f=&gt;{</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const ss=statusStyle(f.status);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const uf=!['infrastructure','backend'].some(k=&gt;(f.type||'').toLowerCase().includes(k));</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const dots=f.outcomeIds.map(oid=&gt;{const o=byId(DB.outcomes,oid);return o?'&lt;span class="dot" style="background:'+o.color.mid+'"&gt;&lt;/span&gt;':''}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>return '&lt;div class="feature-card'+(partnerSel===f.id?' selected':'')+'" onclick="partnerFeatureClick(\''+f.id+'\')"&gt;&lt;h4&gt;'+f.label+'&lt;/h4&gt;&lt;div class="meta"&gt;&lt;span class="tag" style="background:'+ss.bg+';color:'+ss.text+'"&gt;'+f.status+'&lt;/span&gt;&lt;span class="tag" style="background:'+(uf?'#E6F1FB':'#F1EFE8')+';color:'+(uf?'#0C447C':'#5F5E5A')+'"&gt;'+(uf?'User-facing':'Infrastructure')+'&lt;/span&gt;'+dots+'&lt;/div&gt;&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>return '&lt;div class="timeline-row"&gt;&lt;div class="q-label"&gt;'+q+'&lt;/div&gt;&lt;div class="q-features"&gt;'+cards+'&lt;/div&gt;&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>let detailHtml='';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>if(partnerSel){</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const f=byId(DB.features,partnerSel);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>if(f){</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const ss=statusStyle(f.status);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const op=f.outcomeIds.map(oid=&gt;{const o=byId(DB.outcomes,oid);return o?'&lt;span class="pill" style="background:'+o.color.bg+';color:'+o.color.text+';border:1px solid '+o.color.border+'"&gt;'+o.label+'&lt;/span&gt;':''}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const cp=f.capIds.map(cid=&gt;{const c=byId(DB.caps,cid);return c?'&lt;span class="pill" style="background:#F1EFE8;color:#5F5E5A;border:1px solid #888780"&gt;'+c.label+'&lt;/span&gt;':''}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>const lp=f.objIds.map(lid=&gt;{const l=byId(DB.objs,lid);return l?'&lt;span class="pill" style="background:#F1EFE8;color:#5F5E5A;border:1px solid #888780"&gt;'+l.label+'&lt;/span&gt;':''}).join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>detailHtml='&lt;div class="detail-panel"&gt;&lt;div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"&gt;&lt;h3&gt;'+f.label+'&lt;/h3&gt;&lt;span class="tag" style="background:'+ss.bg+';color:'+ss.text+';margin-left:8px"&gt;'+f.status+'&lt;/span&gt;&lt;/div&gt;'+(f.problem?'&lt;div style="font-size:12px;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#fff;border:1px solid #e0dfd8;border-radius:6px;color:#444441"&gt;'+f.problem+'&lt;/div&gt;':'')+(f.risks?'&lt;div style="font-size:12px;line-height:1.5;margin-bottom:10px;padding:8px 10px;background:#FAECE7;border:1px solid #F5C4B3;border-radius:6px;color:#712B13"&gt;&lt;strong&gt;Risks:&lt;/strong&gt; '+f.risks+'&lt;/div&gt;':'')+'&lt;div class="detail-section"&gt;&lt;div class="label"&gt;Outcomes&lt;/div&gt;&lt;div class="items"&gt;'+op+'&lt;/div&gt;&lt;/div&gt;&lt;div class="detail-section"&gt;&lt;div class="label"&gt;Core capabilities&lt;/div&gt;&lt;div class="items"&gt;'+cp+'&lt;/div&gt;&lt;/div&gt;&lt;div class="detail-section"&gt;&lt;div class="label"&gt;Learning objectives&lt;/div&gt;&lt;div class="items"&gt;'+lp+'&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('tab-partner').innerHTML=</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>'&lt;div class="card" style="margin-bottom:18px"&gt;&lt;div style="font-size:13px;font-weight:500;margin-bottom:4px"&gt;Bible Loop — partner roadmap&lt;/div&gt;&lt;div style="font-size:12px;color:#888780;line-height:1.5"&gt;This view shows how planned features connect to the outcomes and learning goals we\'re building toward together. Use the layer toggle to explore the strategic logic, and click any feature for detail.&lt;/div&gt;&lt;/div&gt;&lt;div class="layer-toggle"&gt;&lt;span&gt;Show strategy layer:&lt;/span&gt;'+layerBtns+'&lt;/div&gt;'+stratHtml+'&lt;div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:#888780;margin-bottom:10px;margin-top:4px"&gt;Delivery timeline&lt;/div&gt;'+timelineHtml+detailHtml;</span></p>
+<p class="p2"><span class="s1">}</span></p>
+<p class="p2"><span class="s1">function partnerFeatureClick(id){partnerSel=partnerSel===id?null:id;renderPartner();}</span></p>
+<p class="p2"><span class="s1">&lt;\/script&gt;</span></p>
+<p class="p2"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p4"><span class="s1">&lt;/html&gt;`</span><span class="s3">;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1">export</span><span class="s5"> </span><span class="s1">default</span><span class="s5"> </span><span class="s1">function</span><span class="s5"> </span><span class="s8">App</span><span class="s3">()</span><span class="s5"> </span><span class="s3">{</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s2">const</span><span class="s1"> </span><span class="s3">[</span><span class="s1">done</span><span class="s3">,</span><span class="s1"> setDone</span><span class="s3">]</span><span class="s1"> = </span><span class="s9">useState</span><span class="s3">(</span><span class="s6">false</span><span class="s3">);</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s2">const</span><span class="s1"> </span><span class="s9">download</span><span class="s1"> = </span><span class="s3">()</span><span class="s1"> =&gt; </span><span class="s3">{</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s2">const</span><span class="s1"> blob = </span><span class="s2">new</span><span class="s1"> </span><span class="s8">Blob</span><span class="s3">([</span><span class="s6">HTML</span><span class="s3">],</span><span class="s1"> </span><span class="s3">{</span><span class="s1"> type: </span><span class="s4">"text/html"</span><span class="s1"> </span><span class="s3">});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s2">const</span><span class="s1"> url = </span><span class="s6">URL</span><span class="s3">.</span><span class="s9">createObjectURL</span><span class="s3">(</span><span class="s1">blob</span><span class="s3">);</span></p>
+<p class="p6"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s2">const</span><span class="s5"> a = </span><span class="s8">document</span><span class="s3">.</span><span class="s1">createElement</span><span class="s3">(</span><span class="s4">"a"</span><span class="s3">);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>a</span><span class="s3">.</span><span class="s1">href = url</span><span class="s3">;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>a</span><span class="s3">.</span><span class="s1">download = </span><span class="s4">"index.html"</span><span class="s3">;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>a</span><span class="s3">.</span><span class="s9">click</span><span class="s3">();</span></p>
+<p class="p6"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s6">URL</span><span class="s3">.</span><span class="s1">revokeObjectURL</span><span class="s3">(</span><span class="s5">url</span><span class="s3">);</span></p>
+<p class="p6"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">setDone</span><span class="s3">(</span><span class="s6">true</span><span class="s3">);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s3">};</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p5"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">return</span><span class="s5"> </span><span class="s3">(</span></p>
+<p class="p7"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">div </span><span class="s10">style</span><span class="s1">=</span><span class="s3">{{</span><span class="s1"> padding</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"32px 24px"</span><span class="s3">,</span><span class="s1"> textAlign</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"center"</span><span class="s3">,</span><span class="s1"> fontFamily</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"var(--font-sans)"</span><span class="s1"> </span><span class="s3">}}&gt;</span></p>
+<p class="p7"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s1">div </span><span class="s10">style</span><span class="s1">=</span><span class="s3">{{</span><span class="s1"> fontSize</span><span class="s5">:</span><span class="s1"> </span><span class="s6">14</span><span class="s3">,</span><span class="s1"> fontWeight</span><span class="s5">:</span><span class="s1"> </span><span class="s6">500</span><span class="s3">,</span><span class="s1"> color</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"var(--color-text-primary)"</span><span class="s3">,</span><span class="s1"> marginBottom</span><span class="s5">:</span><span class="s1"> </span><span class="s6">6</span><span class="s1"> </span><span class="s3">}}&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>Bible Loop Roadmap App</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s11">div</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s1">div </span><span class="s10">style</span><span class="s1">=</span><span class="s3">{{</span><span class="s1"> fontSize</span><span class="s5">:</span><span class="s1"> </span><span class="s6">12</span><span class="s3">,</span><span class="s1"> color</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"var(--color-text-secondary)"</span><span class="s3">,</span><span class="s1"> marginBottom</span><span class="s5">:</span><span class="s1"> </span><span class="s6">24</span><span class="s3">,</span><span class="s1"> lineHeight</span><span class="s5">:</span><span class="s1"> </span><span class="s6">1.5</span><span class="s1"> </span><span class="s3">}}&gt;</span></p>
+<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>Downloads </span><span class="s3">&lt;</span><span class="s1">code </span><span class="s10">style</span><span class="s1">=</span><span class="s3">{{</span><span class="s1"> fontSize</span><span class="s5">:</span><span class="s1"> </span><span class="s6">11</span><span class="s3">,</span><span class="s1"> background</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"var(--color-background-secondary)"</span><span class="s3">,</span><span class="s1"> padding</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"1px 5px"</span><span class="s3">,</span><span class="s1"> borderRadius</span><span class="s5">:</span><span class="s1"> </span><span class="s6">3</span><span class="s1"> </span><span class="s3">}}&gt;</span><span class="s5">index.html</span><span class="s3">&lt;/</span><span class="s1">code</span><span class="s3">&gt;</span><span class="s5"> — open it and replace </span><span class="s3">&lt;</span><span class="s1">code </span><span class="s10">style</span><span class="s1">=</span><span class="s3">{{</span><span class="s1"> fontSize</span><span class="s5">:</span><span class="s1"> </span><span class="s6">11</span><span class="s3">,</span><span class="s1"> background</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"var(--color-background-secondary)"</span><span class="s3">,</span><span class="s1"> padding</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"1px 5px"</span><span class="s3">,</span><span class="s1"> borderRadius</span><span class="s5">:</span><span class="s1"> </span><span class="s6">3</span><span class="s1"> </span><span class="s3">}}&gt;</span><span class="s5">YOUR_TOKEN_HERE</span><span class="s3">&lt;/</span><span class="s1">code</span><span class="s3">&gt;</span><span class="s5"> and </span><span class="s3">&lt;</span><span class="s1">code </span><span class="s10">style</span><span class="s1">=</span><span class="s3">{{</span><span class="s1"> fontSize</span><span class="s5">:</span><span class="s1"> </span><span class="s6">11</span><span class="s3">,</span><span class="s1"> background</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"var(--color-background-secondary)"</span><span class="s3">,</span><span class="s1"> padding</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"1px 5px"</span><span class="s3">,</span><span class="s1"> borderRadius</span><span class="s5">:</span><span class="s1"> </span><span class="s6">3</span><span class="s1"> </span><span class="s3">}}&gt;</span><span class="s5">YOUR_PASSWORD_HERE</span><span class="s3">&lt;/</span><span class="s1">code</span><span class="s3">&gt;</span><span class="s5"> before uploading to GitHub.</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s11">div</span><span class="s3">&gt;</span></p>
+<p class="p7"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s1">button </span><span class="s10">onClick</span><span class="s1">=</span><span class="s3">{</span><span class="s1">download</span><span class="s3">}</span><span class="s1"> </span><span class="s10">style</span><span class="s1">=</span><span class="s3">{{</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>padding</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"10px 24px"</span><span class="s3">,</span><span class="s1"> borderRadius</span><span class="s5">:</span><span class="s1"> </span><span class="s6">8</span><span class="s3">,</span><span class="s1"> border</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"none"</span><span class="s3">,</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>background</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"#1D9E75"</span><span class="s3">,</span><span class="s1"> color</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"#fff"</span><span class="s3">,</span><span class="s1"> fontSize</span><span class="s5">:</span><span class="s1"> </span><span class="s6">13</span><span class="s3">,</span><span class="s1"> fontWeight</span><span class="s5">:</span><span class="s1"> </span><span class="s6">500</span><span class="s3">,</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>cursor</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"pointer"</span><span class="s3">,</span><span class="s1"> marginBottom</span><span class="s5">:</span><span class="s1"> </span><span class="s6">12</span><span class="s3">,</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">}}&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>Download index.html</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s11">button</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">{</span><span class="s1">done &amp;&amp; </span><span class="s3">(</span></p>
+<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s1">div </span><span class="s10">style</span><span class="s1">=</span><span class="s3">{{</span><span class="s1"> fontSize</span><span class="s5">:</span><span class="s1"> </span><span class="s6">12</span><span class="s3">,</span><span class="s1"> color</span><span class="s5">:</span><span class="s1"> </span><span class="s4">"#1D9E75"</span><span class="s3">,</span><span class="s1"> marginTop</span><span class="s5">:</span><span class="s1"> </span><span class="s6">8</span><span class="s1"> </span><span class="s3">}}&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>Downloaded. Open the file, add your token and password, then upload to GitHub.</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s11">div</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">)}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s11">div</span><span class="s3">&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s3">);</span></p>
+<p class="p8"><span class="s1">}</span></p>
 </body>
 </html>
