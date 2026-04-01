@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 const HTML = `<!DOCTYPE html>
@@ -346,6 +345,14 @@ function renderPartner(){
     '<div class="card" style="margin-bottom:18px"><div style="font-size:13px;font-weight:500;margin-bottom:4px">Bible Loop — partner roadmap</div><div style="font-size:12px;color:#888780;line-height:1.5">This view shows how planned features connect to the outcomes and learning goals we\'re building toward together. Use the layer toggle to explore the strategic logic, and click any feature for detail.</div></div><div class="layer-toggle"><span>Show strategy layer:</span>'+layerBtns+'</div>'+stratHtml+'<div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:#888780;margin-bottom:10px;margin-top:4px">Delivery timeline</div>'+timelineHtml+detailHtml;
 }
 function partnerFeatureClick(id){partnerSel=partnerSel===id?null:id;renderPartner();}
+
+window.checkPw = checkPw;
+window.showTab = showTab;
+window.traceClick = traceClick;
+window.execOutcomeClick = execOutcomeClick;
+window.execFeatureClick = execFeatureClick;
+window.partnerFeatureClick = partnerFeatureClick;
+window.partnerLayer = 'outcomes';
 <\/script>
 </body>
 </html>`;
