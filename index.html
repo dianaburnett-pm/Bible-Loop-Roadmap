@@ -91,6 +91,7 @@ main { padding: 24px; max-width: 1100px; margin: 0 auto; }
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
 var AIRTABLE_TOKEN = 'patqyVGfVHN7RWD5s';
 var BASE_ID = 'app9JyUAmnAkOQ4mV';
 var PAGE_PASSWORD = 'everyteen';
@@ -370,6 +371,7 @@ function renderPartner() {
 
 function setPartnerLayer(l) { partnerLayer = l; renderPartner(); }
 function partnerFeatureClick(id) { partnerSel = partnerSel===id?null:id; renderPartner(); }
+});
 <\/script>
 </body>
 </html>`;
