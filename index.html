@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 const HTML = `<!DOCTYPE html>
@@ -64,17 +65,9 @@ main { padding: 24px; max-width: 1100px; margin: 0 auto; }
 </head>
 <body>
 
-<div id="gate">
-  <div class="gate-card">
-    <h2>Bible Loop Roadmap</h2>
-    <p>Enter the access password to continue.</p>
-    <input type="password" id="pw-input" placeholder="Password"/>
-    <button id="pw-btn">Enter</button>
-    <div class="err" id="pw-err">Incorrect password</div>
-  </div>
-</div>
+<div id="gate" style="display:none"></div>
 
-<div id="app">
+<div id="app" style="display:block">
   <header>
     <h1>Bible Loop Roadmap</h1>
     <nav>
@@ -94,7 +87,7 @@ main { padding: 24px; max-width: 1100px; margin: 0 auto; }
 document.addEventListener('DOMContentLoaded', function() {
 var AIRTABLE_TOKEN = 'patqyVGfVHN7RWD5s';
 var BASE_ID = 'app9JyUAmnAkOQ4mV';
-var PAGE_PASSWORD = 'everyteen';
+loadData();
 
 var DB = { outcomes: [], caps: [], objs: [], features: [] };
 var traceSel = null;
